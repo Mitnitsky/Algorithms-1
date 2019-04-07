@@ -1,0 +1,1698 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+linguistics
+\end_modules
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\bar under
+אלגוריתמים - 
+\numeric on
+3
+\end_layout
+
+\begin_layout Section*
+
+\bar under
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ ושימושיו
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\xymatrix{ & *++[o][F]{u}\ar[dl]\\
+*++[o][F]{v}\ar[d]\ar[rr] &  & *++[o][F]{w}\ar[ul]\\
+*++[o][F]{y} & *++[o][F]{x}\ar[ul]
+}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\bar under
+הגדרות:
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+רכיב קשיר היטב)רק
+\begin_inset Quotes erd
+\end_inset
+
+ה(
+\bar default
+: בגרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ הוא קב' מקסימלית
+\begin_inset Newline newline
+\end_inset
+
+של צמתים 
+\begin_inset Formula $C\subseteq V$
+\end_inset
+
+.
+ כך שלכל זוג צמתים 
+\begin_inset Formula $u,v\in C$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+יש מסלול מכוון מ-
+\begin_inset Formula $v$
+\end_inset
+
+ל-
+\begin_inset Formula $u$
+\end_inset
+
+ 
+\begin_inset Formula $(v\rightarrow u)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ומ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\begin_inset Formula $(u\rightarrow v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+צומת בודד לכול להיות רק
+\begin_inset Quotes erd
+\end_inset
+
+ה.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\bar under
+דוגמה:
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+- הגרף ההופכי של גרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ הוא 
+\begin_inset Formula $G^{T}=(V,E^{T})$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $E^{T}=\{(u,v):(v,u)\in E\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+)דהיינו הופכים את כיווני הקשתות ב-
+\begin_inset Formula $\text{G}$
+\end_inset
+
+.(
+\begin_inset Newline newline
+\end_inset
+
+- נשים לב כי ב-
+\begin_inset Formula $G$
+\end_inset
+
+וב
+\begin_inset Formula $G^{T}$
+\end_inset
+
+ יש בדיוק אותם רק
+\begin_inset Quotes erd
+\end_inset
+
+ה.
+ בפרטת אם 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ניתנים להגעה הדדית ב-
+\begin_inset Formula $G$
+\end_inset
+
+, אז גם ב-
+\begin_inset Formula $G^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+
+\bar under
+אלגוריתם למציאת רכיבים קשירים היטב
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \text{Strongly Connected Comptonents (G)}\\
+ & \text{1.Call DFS to compute f[u] for all \ensuremath{u\in V}}\\
+ & \text{2.Compute \ensuremath{G^{T}}}\\
+ & \text{3.Call DFS\ensuremath{(G^{T})}but in the main loop consider the vertices}\\
+ & \text{   in decreasing order of \ensuremath{f[u]}(as computed in 1.)}\\
+ & \text{4.Output the certices in each DFS tree generated in 3.}\\
+ & \text{   as a seperate component.}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמת הרצה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\xymatrix{*++[o][F]{a}\ar[r] & *++[o][F]{b}\ar[r]\ar[d]\ar[dl] & *++[o][F]{c}\ar@(ur,ul)[r]\ar[d] & *++[o][F]{d}\ar@(dl,dr)[l]\ar[d]\\
+*++[o][F]{e}\ar[r]\ar[u] & *++[o][F]{f}]\ar@(ur,ul)[r] & *++[o][F]{g}\ar@(dl,dr)[l] & *++[o][F]{h}\ar[d]\ar@(dl,dr)[l]\\
+*++[o][F]{a}\ar[d] & *++[o][F]{b}\ar[l] & *++[o][F]{c}\ar@(dr,dl)[r]\ar[l] & *++[o][F]{d}\ar@(ul,ur)[l]\\
+*++[o][F]{e}\ar[ur] & *++[o][F]{f}\ar@(dr,dl)[r]\ar[u]\ar[l] & *++[o][F]{g}\ar[u]\ar@(ul,ur)[l] & *++[o][F]{h}\ar[l]\ar[u]\ar@(ur,dr)
+}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\bar under
+זמן הריצה של אלג' 
+\begin_inset Formula $\text{SCC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+זמן הרצה נקבע ע
+\begin_inset Quotes erd
+\end_inset
+
+י
+\end_layout
+
+\begin_layout Enumerate
+הרצה של 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow\Theta(|V|+|E|)\rightarrow$
+\end_inset
+
+)סה
+\begin_inset Quotes erd
+\end_inset
+
+כ זמן ריצה(
+\end_layout
+
+\begin_layout Enumerate
+יצירת 
+\begin_inset Formula $G^{T}$
+\end_inset
+
+ 
+\begin_inset Formula $O(|E|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+סריקת הצמתים בלולאה המרכזית בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.
+\begin_inset Newline newline
+\end_inset
+
+בסדר יורד לפי 
+\begin_inset Formula $f[u]$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ניתן לשמור את ערכי 
+\begin_inset Formula $f[u]$
+\end_inset
+
+ בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+.
+ במחסנית.
+\end_layout
+
+\begin_layout Standard
+לצורכך הוכחת הנכונות של 
+\begin_inset Formula $\text{SCC}$
+\end_inset
+
+ נגדיר את
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+גרף הרכיבים
+\bar default
+ של 
+\begin_inset Formula $\text{G}$
+\end_inset
+
+, 
+\begin_inset Formula $G^{*}=(V^{*},E^{*})$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+נניח כי הרק
+\begin_inset Quotes erd
+\end_inset
+
+ה ב-
+\begin_inset Formula $G$
+\end_inset
+
+ הם 
+\begin_inset Formula $C_{1},C_{2},\dots,C_{k}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+אזי 
+\begin_inset Formula $V^{*}=\{v_{1},v_{2},\dots,v_{k}\}$
+\end_inset
+
+ והוא כולל צומת 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ לכל 
+\begin_inset Newline newline
+\end_inset
+
+רק
+\begin_inset Quotes erd
+\end_inset
+
+ה 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+תהיה קשת 
+\begin_inset Formula $(v_{i},v_{j})$
+\end_inset
+
+ ב-
+\begin_inset Formula $G^{*}$
+\end_inset
+
+ אם 
+\begin_inset Formula $G$
+\end_inset
+
+ מכיל קשת מאיזשהו צומת
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $x\in C_{i}$
+\end_inset
+
+ ל- 
+\begin_inset Formula $y\in C_{j}$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+בדוגמה:
+\bar default
+ גרף הרכיבים הוא:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\xymatrix{*++[o][F]{abe}\ar[d]\ar[r] & *++[o][F]{cd}\ar[dl]\ar[d]\\
+*++[o][F]{fg}\ar[r] & *++[o][F]{h}
+}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+למה 
+\numeric on
+1
+\numeric off
+:
+\bar default
+ יהיו 
+\begin_inset Formula $C$
+\end_inset
+
+ ו-
+\begin_inset Formula $C'$
+\end_inset
+
+ שני רק
+\begin_inset Quotes erd
+\end_inset
+
+ה בגרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+ויהיו 
+\begin_inset Formula $v,u\in C$
+\end_inset
+
+ ו-
+\begin_inset Formula $v',u'\in C'$
+\end_inset
+
+ נניח שיש מסלול מכוון 
+\begin_inset Formula $u\rightarrow u'$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+אזי לא ייתכן שיש מסלול מכוון מ-
+\begin_inset Formula $v'\rightarrow u'$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+)הוכחה בתרגול(.
+\end_layout
+
+\begin_layout Standard
+-
+\begin_inset Newline newline
+\end_inset
+
+כאשר נשתמש ב- 
+\begin_inset Formula $d[u]$
+\end_inset
+
+ ו- 
+\begin_inset Formula $f[u]$
+\end_inset
+
+ בניתוח האלג',
+\begin_inset Newline newline
+\end_inset
+
+נתייחס לערכים אלו כפי שנקבעו ל-
+\begin_inset Formula $u$
+\end_inset
+
+ 
+\bar under
+בקריאה הראשונה
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+ל-
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ )בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+.
+ של האלג'(.
+\begin_inset Newline newline
+\end_inset
+
+-נרחיב את ההגדרות של זמן 
+\begin_inset Quotes eld
+\end_inset
+
+גילוי
+\begin_inset Quotes erd
+\end_inset
+
+ ו
+\begin_inset Quotes erd
+\end_inset
+
+נסיגה
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\bar under
+לקבוצות
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+צמתים אם 
+\begin_inset Formula $U\subseteq V$
+\end_inset
+
+ אזי 
+\begin_inset Formula $d(U)=\underset{u\in U}{\text{min}}\{d[u]\}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ו- 
+\begin_inset Formula $f(U)=\underset{u\in U}{\text{max}}\{f[u]\}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+דהיינו 
+\begin_inset Formula $d(U)$
+\end_inset
+
+ ו-
+\begin_inset Formula $f(U)$
+\end_inset
+
+ הם זמן הגילוי המוקדם
+\begin_inset Newline newline
+\end_inset
+
+וזמן הנסיגה המאוחר בקבוצה 
+\begin_inset Formula $U$
+\end_inset
+
+, בהתאמה.
+\end_layout
+
+\begin_layout Subsubsection*
+למה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+יהיו 
+\begin_inset Formula $C$
+\end_inset
+
+ ו- 
+\begin_inset Formula $C'$
+\end_inset
+
+ שני קר
+\begin_inset Quotes erd
+\end_inset
+
+ה בגרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+נניח שיש קשת 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $u\in C$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ו-
+\begin_inset Formula $v\in C'$
+\end_inset
+
+, אזי 
+\begin_inset Formula $f(C)>f(C')$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נטפל בשני מקרים כתלות ביחס
+\begin_inset Newline newline
+\end_inset
+
+בין 
+\begin_inset Formula $d(C)$
+\end_inset
+
+ ו- 
+\begin_inset Formula $d(C')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(C)<d(C')$
+\end_inset
+
+ ויהיו 
+\begin_inset Formula $x$
+\end_inset
+
+ הצומת הראשון שהתגלה ב- 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+אזי בזמן 
+\begin_inset Formula $d[x]$
+\end_inset
+
+ כל הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ ו-
+\begin_inset Formula $C'$
+\end_inset
+
+ לבנים.
+ היות ו- 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+יש מסלול שמורכב רק מצמתים לבנים מ-
+\begin_inset Formula $x$
+\end_inset
+
+ לכל צומת ב-
+\begin_inset Formula $C$
+\end_inset
+
+ 
+\bar under
+וגם
+\bar default
+ מ-
+\begin_inset Formula $x$
+\end_inset
+
+ לכל צומת ב
+\begin_inset Formula $C'$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ממשפט המסלול הלבן, כל הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ וב-
+\begin_inset Formula $C'$
+\end_inset
+
+ יהפכו צאצאים של 
+\begin_inset Formula $x$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ממשפט הסוגריים, לכל צומת 
+\begin_inset Formula $w$
+\end_inset
+
+ ב-
+\begin_inset Formula $C$
+\end_inset
+
+ או ב-
+\begin_inset Formula $C'$
+\end_inset
+
+ מתקיים:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d[x]<d[w]<f[w]<f[x]$
+\end_inset
+
+ ולכן 
+\begin_inset Formula $f[x]=f[C]>f(C')$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+אם 
+\begin_inset Formula $\boldsymbol{d(C)>d(C')}$
+\end_inset
+
+, אזי יהי 
+\begin_inset Formula $y$
+\end_inset
+
+ הצומת הראשון שהתגלה ב-
+\begin_inset Formula $C'$
+\end_inset
+
+ בזמן 
+\begin_inset Formula $d[y]$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+יש מסלול לבן מ-
+\begin_inset Formula $y$
+\end_inset
+
+ לכל צומת ב- 
+\begin_inset Formula $C'$
+\end_inset
+
+.
+ לכן, ממשפט המסלול הלבן כל הצמתים ב-
+\begin_inset Formula $C'$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+יהפכו לצאצאים של 
+\begin_inset Formula $y$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+, וממפש הסוגריים 
+\begin_inset Formula $f[y]=f(C')$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+בזמן הגילוי של 
+\begin_inset Formula $y$
+\end_inset
+
+ כל הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ לבנים.
+ היות ויש קשת 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ מ-
+\begin_inset Formula $C$
+\end_inset
+
+ ל-
+\begin_inset Formula $C'$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+מלמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+ת לא ייתכן שיש מסלול מ-
+\begin_inset Formula $C'$
+\end_inset
+
+ ל-
+\begin_inset Formula $C$
+\end_inset
+
+, לכן לא ניתן להגיע מ-
+\begin_inset Formula $y$
+\end_inset
+
+ לאף צומת ב-
+\begin_inset Formula $C$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+לכן, בזמן 
+\begin_inset Formula $f[y]$
+\end_inset
+
+ כל הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ עדיין לבנים.
+\begin_inset Newline newline
+\end_inset
+
+מכאן נקבל כי לכל 
+\begin_inset Formula $f[w]>f[y],w\in C$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+לכן 
+\begin_inset Formula $f(C)>f(C')$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+מסכנה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+יהיו 
+\begin_inset Formula $C$
+\end_inset
+
+ ו-
+\begin_inset Formula $C'$
+\end_inset
+
+ רק
+\begin_inset Quotes erd
+\end_inset
+
+ה בגרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+נניח שיש קשת 
+\begin_inset Formula $(u,v)\in E^{T}$
+\end_inset
+
+, כאשר 
+\begin_inset Formula $u\in C$
+\end_inset
+
+ ו- 
+\begin_inset Formula $v\in C'$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+אזי בהרצה של 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ על 
+\begin_inset Formula $G$
+\end_inset
+
+ )בצעד ו של 
+\begin_inset Formula $\text{SCC}$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+נקבל כי 
+\begin_inset Formula $f(C)<f(C')$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+היות ו-
+\begin_inset Formula $(u,v)\in E^{T}$
+\end_inset
+
+, יש ב- 
+\begin_inset Formula $G$
+\end_inset
+
+ קשת 
+\begin_inset Formula $(v,u)\in E$
+\end_inset
+
+ מלמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+,
+\begin_inset Newline newline
+\end_inset
+
+היות ויש קשת מ-
+\begin_inset Formula $C'$
+\end_inset
+
+ ל-
+\begin_inset Formula $C$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נקבל כי 
+\begin_inset Formula $f(C')>f(C)$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\bar under
+משפט 
+\numeric on
+4
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+האלגוריתם 
+\begin_inset Formula $\text{Strongly Connected Components}$
+\end_inset
+
+ מחשב נכון את הרק
+\begin_inset Quotes erd
+\end_inset
+
+ה בגרף מכוון 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\bar under
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נוכיח באינדוקציה שכ
+\begin_inset Quotes erd
+\end_inset
+
+א מ-
+\begin_inset Formula $x$
+\end_inset
+
+ העצים הראשונים שנמצאו בהרצת 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ על 
+\begin_inset Formula $G^{T}$
+\end_inset
+
+ )בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.
+ של 
+\begin_inset Formula $SCC$
+\end_inset
+
+ ( הוא רק
+\begin_inset Quotes erd
+\end_inset
+
+ה.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\bar under
+בסיס:
+\series default
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $k=0$
+\end_inset
+
+, נכון באופן ריק.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\bar under
+צעד האינדוקציה:
+\series default
+\bar default
+ 
+\begin_inset Newline newline
+\end_inset
+
+נניח שהטענה נכונה ל-
+\begin_inset Formula $k$
+\end_inset
+
+ העצים הראשונים ונוכיח לעץ ה-)
+\begin_inset Formula $k+1$
+\end_inset
+
+( נניח כי השורש של העף הינו צומת 
+\begin_inset Formula $u$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+כאשר 
+\begin_inset Formula $u$
+\end_inset
+
+ שייף לרק
+\begin_inset Quotes erd
+\end_inset
+
+ה 
+\begin_inset Formula $C$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+- מאופן התקדמות האלג' בלולאה המרכזית של צעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.
+ מתקיים:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f[u]=f(C)>f(C')$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+לכל רק
+\begin_inset Quotes erd
+\end_inset
+
+ה 
+\begin_inset Formula $C'$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+ שעוד לא טופל )בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+(.
+\begin_inset Newline newline
+\end_inset
+
+-מהנחת האינדוקציה, בזמן ש-
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+מגלה
+\begin_inset Quotes erd
+\end_inset
+
+ את
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $u$
+\end_inset
+
+ )בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.( כל
+\begin_inset Newline newline
+\end_inset
+
+הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ לבנים ממשפט המסלול הלבן, כל הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ יהפכו לצאצאים של 
+\begin_inset Formula $u$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+-בנוסף ממסקנה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+.
+ כל קשת שיוצאת מ–
+\begin_inset Formula $C$
+\end_inset
+
+ ב-
+\begin_inset Formula $G^{T}$
+\end_inset
+
+ מובילה לרק
+\begin_inset Quotes erd
+\end_inset
+
+ה שכבר ביקרנו.
+\begin_inset Newline newline
+\end_inset
+
+-לכן הצאצאים של 
+\begin_inset Formula $u$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ הם 
+\bar under
+כל
+\bar default
+ הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+ ורק הצמתים ב-
+\begin_inset Formula $C$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

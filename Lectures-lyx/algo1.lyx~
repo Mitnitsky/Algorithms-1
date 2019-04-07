@@ -1,0 +1,1791 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 7 -1
+\bullet 1 0 8 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Subsection*
+אלגוריתמים לחיפשו בגרפים
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{s\ensuremath{\underset{\downarrow}{\rightarrow}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ensuremath{\underset{\downarrow}{\rightarrow}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ ההתקדמות בכל צעד: ימינה, שמאלה למטה
+\end_layout
+
+\begin_layout Subsubsection*
+המטרה:
+\end_layout
+
+\begin_layout Paragraph
+למצוא את המסלול הקצר ביותר מ-
+\begin_inset Formula $\text{S}$
+\end_inset
+
+ ל-
+\begin_inset Formula $\text{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+חיפוש בגרף:
+\end_layout
+
+\begin_layout Standard
+נתון גרף 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ וצומת מקור 
+\begin_inset Formula $s\in V$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Enumerate
+יש לגלות את כל הצמתים ב-
+\begin_inset Formula $\text{G}$
+\end_inset
+
+ שהם ברי-הגיעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+עבור צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ שהוא בר-הגעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+ יש למצוא את המרחק הקצר ביותר בקשתות מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+האלגוריתם 
+\begin_inset Formula $\text{(Breath First Search) BFS}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+עובר על כל הקשתות של 
+\begin_inset Formula $\text{G}$
+\end_inset
+
+ ו
+\begin_inset Quotes erd
+\end_inset
+
+מגלה
+\begin_inset Quotes erd
+\end_inset
+
+ את קבוצת הצמתים שניתנים להגעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+, 
+\begin_inset Formula $R\subseteq V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+פלט האלגוריתם:
+\end_layout
+
+\begin_layout Itemize
+עץ ששורשו 
+\begin_inset Formula $s$
+\end_inset
+
+ המכיל את כל הצמתים ב-
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+המרחק, דהיינו מספר הקשתות המינימלי מ-
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $s$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לכל צומצ ב-
+\lang english
+
+\begin_inset Formula $R$
+\end_inset
+
+
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Itemize
+ניתן להפעיל את 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+ גם על גרפים מכוונים והן על גרפים לא-מכוונים.
+\end_layout
+
+\begin_layout Subsubsection*
+פסאודו קוד ל-
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \text{Input: A graph \ensuremath{G=(V,E)} s\ensuremath{\in V}}\\
+ & \text{Output: For any \ensuremath{v\in V}, \ensuremath{d(v)} is the distance from \ensuremath{s} to \ensuremath{v}.}\\
+ & \text{For any \ensuremath{v\in V,} do:}\\
+ & \text{ }\text{ }\text{ }d(v)\leftarrow\infty\\
+ & \text{ }\text{ }\text{ }d(s)\leftarrow0\\
+ & \text{ }\text{ }\text{ }i\leftarrow0\\
+ & \text{ \ensuremath{\text{While there is neighbor \ensuremath{v} of \ensuremath{u}with \ensuremath{d(v)}= \ensuremath{\infty} do}}}\\
+ & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{d(v)\ensuremath{\leftarrow i+1}}\\
+ & i\leftarrow i+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+מימוש 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+ באמצעות תור:
+\end_layout
+
+\begin_layout Standard
+בתחילה התור 
+\begin_inset Formula $Q$
+\end_inset
+
+ ריק.
+\end_layout
+
+\begin_layout Standard
+צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ ש
+\begin_inset Quotes erd
+\end_inset
+
+התגלה
+\begin_inset Quotes erd
+\end_inset
+
+ נכנס ל-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+צומת 
+\begin_inset Formula $w$
+\end_inset
+
+ יוצא מראש התור לקראת סריקת שכניו.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+האב
+\bar default
+ של צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ בעץ החיפוש הוא הצומת שגרם ל-
+\begin_inset Formula $v$
+\end_inset
+
+ להתגלות.
+\end_layout
+
+\begin_layout Standard
+האלגוריתם רץ כל עוד 
+\begin_inset Formula $Q$
+\end_inset
+
+ לא ריק.
+\end_layout
+
+\begin_layout Subsubsection*
+סימונים:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d(v)$
+\end_inset
+
+ - המרחק של 
+\begin_inset Formula $v$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi(v)$
+\end_inset
+
+ - האב של 
+\begin_inset Formula $v$
+\end_inset
+
+בעץ החיפוש.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Adj(v)$
+\end_inset
+
+ -קבוצת השכנים של 
+\begin_inset Formula $v$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \text{For any \ensuremath{u\in V\backslash\{s\}}do \ensuremath{\{d(u)\leftarrow\infty,\pi(u)\leftarrow NULL\}}}\\
+ & d(s)\leftarrow0\\
+ & Q\leftarrow\emptyset\\
+ & \text{Enqueue\ensuremath{(Q,s)}}\\
+ & \text{While \ensuremath{Q\ne\emptyset} do}\\
+ & \text{ }\text{ }u\leftarrow\text{dequeue\ensuremath{(Q)}}\\
+ & \text{ }\text{ }\text{Foreach \ensuremath{v\in Adj(u)}do}\\
+ & \text{ }\text{ }\text{ }\text{ }\text{if \ensuremath{d(v)=\infty}then}\\
+ & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }d(v)\leftarrow d(u)+1\\
+ & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\pi(v)\leftarrow u\\
+ & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{Enqueue\ensuremath{(Q,v)}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+זמן הריצה של 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+אתחול:
+\series default
+ 
+\begin_inset Formula $O(|V|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+לולאת ה-
+\begin_inset Formula $\text{\textbf{while}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+עבור כל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ שיוצא מהתור עוברים על כל השכנים, דהיינו לכל היותר 
+\begin_inset Formula $O(|Adj(v)|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ נעבור על כל קשת בגרף לכל היותר פעמיים לכן זמן הריצה הוא 
+\begin_inset Formula $O(|E|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחת נכונות 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+נראה כי 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+ מוצא את המסלול הקצר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ לכל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ אשר בר הגעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+נסמן ב-
+\begin_inset Formula $\delta(s,v)$
+\end_inset
+
+ את המרחק הקצר ביותר )בקשתות( מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+ אם אין מסלול מ-
+\begin_inset Formula $s$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ל-
+\begin_inset Formula $v$
+\end_inset
+
+ אזי 
+\begin_inset Formula $\delta(s,v)=\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+למה 
+\numeric on
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Subsubsection*
+לכל קשת 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $\delta(s,v)\le\delta(s,u)+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחת למה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Enumerate
+אם 
+\begin_inset Formula $u$
+\end_inset
+
+ בר הגעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+, אזי המסלול הקצר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ הוא לכל היותר
+\begin_inset Newline newline
+\end_inset
+
+ המסלול הקצר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $u$
+\end_inset
+
+ 
+\begin_inset Formula $+$
+\end_inset
+
+ הקשת 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+אחרת 
+\begin_inset Formula $\delta(s,u)=\infty$
+\end_inset
+
+ ולכן אי-השוויון מתקיים.
+\end_layout
+
+\begin_layout Subsubsection*
+למה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+בסיום האלגוריתם הערך 
+\begin_inset Formula $d(v)$
+\end_inset
+
+ המחושב ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+ מקיים 
+\begin_inset Formula $d(v)\ge\delta(s,v)$
+\end_inset
+
+ לכל 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נוכיח באינדוקציה על מספר צעד ה-
+\begin_inset Formula $\text{Enqueue}$
+\end_inset
+
+, שאחרי צעד כזה יתקיים
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $d(v)\ge\delta(s,v)$
+\end_inset
+
+ לכל 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+בסיס:
+\end_layout
+
+\begin_layout Standard
+אחרי פעולת 
+\begin_inset Formula $\text{Enqueue}(Q,s)$
+\end_inset
+
+ הטענה מתקיימת כי 
+\begin_inset Formula $d(s)=0=\delta(s,s)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ולכל 
+\begin_inset Formula $v\in V\backslash\{s\}$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $d(v)=\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+צעד האינדוקציה:
+\end_layout
+
+\begin_layout Standard
+נניח שצומת 
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+התגלה
+\begin_inset Quotes erd
+\end_inset
+
+ תכאשר סרקנו את השכנים של 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מכאן, 
+\begin_inset Formula $v$
+\end_inset
+
+ נכנס לתור.
+ מהנחת האינדוקציה, 
+\begin_inset Formula $d(u)\ge\delta(s,u)$
+\end_inset
+
+.
+ לכן:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d(v)\underbrace{=}_{\text{Algorithm'}}d(u)+1\underbrace{\ge}_{\text{Induction}}\delta(s,u)+1\underbrace{\ge}_{\text{Lema 1}}\delta(s,v)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+היות ש-
+\begin_inset Formula $d(v)$
+\end_inset
+
+ לא ישתנה במהלך האלגוריתם, אי-השוויון שמצאנו לעיל מתקיים גם בסוף האלגוריתם.
+\end_layout
+
+\begin_layout Subsubsection*
+למה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+נניח שבמהלך הביצוע של 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+התור 
+\begin_inset Formula $Q$
+\end_inset
+
+ מכיל את 
+\begin_inset Formula $\{v_{1},v_{2},\dots,v_{r}\}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+אזי:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d(v_{r})\le d(v_{1})+1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall1\le i\le r,d(v_{i})\le d(v_{i+1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+מסקנה
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+נניח ש-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ נכנס ל-
+\begin_inset Formula $Q$
+\end_inset
+
+ לפני ש-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+נכנס לתור.
+ אזי, 
+\begin_inset Formula $d(v_{i})\le d(v_{j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נתבונן ב-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ ו-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+וסדרת הצמתים שהוכנסו ביניהם ל-
+\begin_inset Formula $Q$
+\end_inset
+
+: 
+\begin_inset Formula $\{v_{i},v_{i+1},v_{i+1},v_{j}\}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+כל זוג צמתים עוקבים בסדרה 
+\begin_inset Formula $v_{k},v_{k+1}$
+\end_inset
+
+ מקיימים את אחד מהתנאים הבאים:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v_{k},v_{k+1}$
+\end_inset
+
+ יחד בתור ולכן לפי למה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+ 
+\begin_inset Formula $d(v_{k})\le d(v_{k+1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v_{k+1}$
+\end_inset
+
+ נכנס לתור 
+\begin_inset Formula $Q$
+\end_inset
+
+ אחרי ש-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+יוצא ממנו אזי מפני שאין צומת ביניהם בסדרה נובע כי 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+גורם ל-
+\begin_inset Formula $v_{k+1}$
+\end_inset
+
+ להתגלות ולכן 
+\begin_inset Formula $d(v_{k+1})=d(v_{k})+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\family typewriter
+
+\begin_inset Formula 
+\[
+d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+משפט:
+\end_layout
+
+\begin_layout Standard
+נניח שמריצים את 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+על 
+\begin_inset Formula $G$
+\end_inset
+
+ )מכוון/לא מכוון( עם צומת מקור 
+\begin_inset Formula $s$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+אזי 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+ מגלה כל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ שהוא בר-השגה מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ובסיום האלג' 
+\begin_inset Formula $d(v)=\delta(s,v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+בנוסף, לכל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+בר-השגה מ-
+\begin_inset Formula $s$
+\end_inset
+
+ אחד המסלולים הקצרים ל-
+\begin_inset Formula $v$
+\end_inset
+
+ הוא מסלול קצר
+\begin_inset Newline newline
+\end_inset
+
+ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ל-
+\begin_inset Formula $\pi(v)$
+\end_inset
+
+, שאליו נוספת הקשת 
+\begin_inset Formula $(\pi(v),v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה שקיים צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ עבורו 
+\begin_inset Formula $d(v)\ne\delta(s,v)$
+\end_inset
+
+ מלמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+, מפני ש-
+\begin_inset Formula $d(v)\ge\delta(s,v)$
+\end_inset
+
+ אזי 
+\begin_inset Newline newline
+\end_inset
+
+נקבל 
+\begin_inset Formula $d(v)>\delta(s,v)$
+\end_inset
+
+.
+ נקח את הצומת 
+\begin_inset Formula $v$
+\end_inset
+
+ עם 
+\begin_inset Formula $\delta(s,v)$
+\end_inset
+
+ מינימלי שעבורו מתקיים אי-השוויון החזק.
+\begin_inset Newline newline
+\end_inset
+
+נסתכל על המסלול הקצר ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-.
+ יהי 
+\begin_inset Formula $u$
+\end_inset
+
+ הצומת שמופיע מיד לפני 
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+במסלול זה.
+ אזי, 
+\begin_inset Formula $\delta(s,v)=\delta(s,u)+1$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+מאופן הבחירה של 
+\begin_inset Formula $v$
+\end_inset
+
+ כצומת בעל 
+\begin_inset Formula $\delta(s,v)$
+\end_inset
+
+המינימלי שמקיים את אי-השוויון החזק,
+\begin_inset Newline newline
+\end_inset
+
+נקבל כי 
+\begin_inset Formula $d(v)=\delta(s,u)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+מכאן:
+\begin_inset Formula 
+\[
+d(v)>\delta(s,v)=\delta(s,u)+1=d(u)+1\text{ (**)}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נראה כי אי-השוויון )**( לא יתכן.
+ נסתכל על הצעד בו 
+\begin_inset Formula $u$
+\end_inset
+
+ יוצא מהתור נבחין ב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מקרים:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v$
+\end_inset
+
+ עוד לא 
+\begin_inset Quotes eld
+\end_inset
+
+התגלה
+\begin_inset Quotes erd
+\end_inset
+
+, לכן מהאלגוריתם נקבל 
+\begin_inset Formula $d(v)=d(u)+1$
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סתירה ל-)**(.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v$
+\end_inset
+
+ עוד לא היה בתור.
+ לכן, 
+\begin_inset Formula $v$
+\end_inset
+
+ נכנס לתור לפני 
+\begin_inset Formula $u$
+\end_inset
+
+ )שכן התור 
+\begin_inset Formula $\text{FIFO}$
+\end_inset
+
+(
+\begin_inset Newline newline
+\end_inset
+
+וממסקנה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+ 
+\begin_inset Formula $d(v)\le d(u)$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סתירה ל-)**(.
+\end_layout
+
+\begin_layout Enumerate
+הצומת 
+\begin_inset Formula $v$
+\end_inset
+
+ עדיין בתור.
+ לכן, מיד לפני ש-
+\begin_inset Formula $v$
+\end_inset
+
+ יצא מהתור, 
+\begin_inset Formula $u$
+\end_inset
+
+ ראשון בתור
+\begin_inset Newline newline
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+במקרה הגרוע
+\begin_inset Quotes erd
+\end_inset
+
+ אחרון בתור.
+ ולכן מלמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $d(v)\le d(u)+1$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סתירה ל-)**(.
+\end_layout
+
+\begin_layout Standard
+מכאן נקבל כי לכל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ שהוא בר הגעה מ-
+\begin_inset Formula $s$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $d(v)=d(s,v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+לסיום, נזכיר כי אם 
+\begin_inset Formula $\pi(v)=u$
+\end_inset
+
+ אזי 
+\begin_inset Formula $\delta(s,v)=\delta(s,u)+1$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $d(v)=d(u)+1$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+לכן, ניתן לקבל מסלול קצר ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ ע
+\begin_inset Quotes erd
+\end_inset
+
+י הוספת 
+\begin_inset Formula $(\pi(v),v)$
+\end_inset
+
+ למסלול הקצר ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ל-
+\begin_inset Formula $\pi(v)$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

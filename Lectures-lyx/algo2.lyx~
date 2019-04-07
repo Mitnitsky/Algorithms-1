@@ -1,0 +1,1399 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Subsection*
+אלגוריתם חיפוש לעומק
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overbrace{\downarrow}^{\mathclap{\text{Start}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksmiley$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\downarrow\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underset{\downarrow}{\uparrow}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksmiley$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksmiley$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\downarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksmiley$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\blacksmiley$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+רובוט סורק אזור לצורך גילוי מוקשים, ההתקדמות בכל צעד: ימינה שמאלה למטה,
+ למעלה.
+\end_layout
+
+\begin_layout Subsection*
+אלגוריתם 
+\begin_inset Formula $\text{(Depth First Search) DFS}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מנסה להתקדם כמה שיותר לעומק הגרף.
+\begin_inset Newline newline
+\end_inset
+
+כאשר נבקשר בצומת 
+\begin_inset Formula $v$
+\end_inset
+
+, אם יש קשת 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ לצומת 
+\begin_inset Formula $u$
+\end_inset
+
+ שעוד לא 
+\begin_inset Quotes eld
+\end_inset
+
+התגלה
+\begin_inset Quotes erd
+\end_inset
+
+, נחצה 
+\begin_inset Newline newline
+\end_inset
+
+את הקשת ונמשיך את החיפוש מהצומת 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+המטרה:
+\bar default
+ יש לגלות את כל הצמתים בגרף.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ על גרף מכוון:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+קלט:
+\series default
+ גרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, צומת 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+פלט: 
+\series default
+לכל 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $d[v]$
+\end_inset
+
+, זמן הגילוי של 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+סימונים:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d[v]$
+\end_inset
+
+ זמן גילוי זל 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi[v]$
+\end_inset
+
+ הצומת שגרם ל-
+\begin_inset Formula $v$
+\end_inset
+
+ להתגלות.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Formula 
+\begin{align*}
+\text{} & \text{DFS:}\\
+ & \text{1.For all \ensuremath{v\in V} \ensuremath{d[v]\leftarrow0,}\ensuremath{\pi[v]\leftarrow null}}\\
+ & \text{   mark all edges "unused"}\\
+ & \text{ \ensuremath{}}i\leftarrow0,\text{ \ensuremath{v\leftarrow s}}\\
+ & \text{2.}i\leftarrow i+1\text{ \ensuremath{d[v]\leftarrow i}}\\
+ & \text{3.While there are unused out-edges from \ensuremath{v},}\\
+ & \text{     choose unused edges \ensuremath{(v,u)}, mark \ensuremath{(v,u)} as used}\\
+ & \text{     if \ensuremath{d[u]=0:\text{ \ensuremath{\{\pi[u]\leftarrow v,v\leftarrow u,i\leftarrow i+1,d[v]\leftarrow i\}}}}}\\
+ & \text{4.If \ensuremath{\pi[v]\ne null}then \ensuremath{v\leftarrow\pi[v]} and go to (3)}\\
+ & \text{    else if there is \ensuremath{u\in V}with \ensuremath{d[u]=0} then}\\
+ & \text{        \ensuremath{v\in u}and go to (2)}\\
+ & \text{5.stop}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נשים לב כי בהרצות שונות של DFS נוכל לקבל פלטים שונים, אך הכולן נקבל
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+יער
+\begin_inset Quotes erd
+\end_inset
+
+ שבו כל צומת מופיע מאיזשהו עץ מכוון.
+\end_layout
+
+\begin_layout Itemize
+בנוסף , DFS לא בהרכח מוצא מרחקים קצרים.
+\end_layout
+
+\begin_layout Itemize
+בסיום הרצת DFS נקבל 
+\begin_inset Formula $\text{predecessor subgraph}$
+\end_inset
+
+.
+ זהו תת-גרף שבו לכל צומת 
+\begin_inset Formula $v$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+מופיע קשת 
+\begin_inset Formula $(v,\pi(v))$
+\end_inset
+
+ כפי שנמצא ע
+\begin_inset Quotes erd
+\end_inset
+
+י האלגוריתם, 
+\bar under
+סימון:
+\bar default
+ 
+\begin_inset Formula $G_{\pi}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \text{For each \ensuremath{u\in V}do \ensuremath{\{}color\ensuremath{[u]\leftarrow}white, \ensuremath{\pi[u]\leftarrow null\}}}\\
+ & \text{For each \ensuremath{u\in V}do}\\
+ & \text{     if color\ensuremath{[u]=}white then DFS-VISIT(\ensuremath{u})}\\
+ & \text{DFS-VISIT(u):}\\
+ & \text{color\ensuremath{[u]\leftarrow}gray}\\
+ & i\leftarrow i+1\\
+ & d[u]\leftarrow i\\
+ & \text{For each \ensuremath{v\in Adj[i]} do}\\
+ & \text{    if color[\ensuremath{v}]\ensuremath{=}white then \ensuremath{\{\pi[v]\leftarrow u,\text{ DFS-VISIT\ensuremath{(}\ensuremath{v)\}}}}}\\
+ & i\leftarrow i+1\\
+ & f[u]\leftarrow i
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\text{color}[u]$
+\end_inset
+
+ - 
+\begin_inset Formula $\{white,gray\}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f[u]$
+\end_inset
+
+ - זמן היציאה האחרון מ-
+\begin_inset Formula $u$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $Adj[u]$
+\end_inset
+
+ - אוסף השכנים של 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+זמן הריצה של 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+DFS :
+\end_layout
+
+\begin_layout Itemize
+לולאת האתחוך: 
+\begin_inset Formula $\theta(|V|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+נסמן ב-
+\begin_inset Formula $T(\text{DFS-VISIT)}$
+\end_inset
+
+ את מספר הפעולות המבוצעות בקריאה ל-
+\begin_inset Formula $\text{DFS-VISIT}$
+\end_inset
+
+ עבור הצומת .
+\begin_inset Newline newline
+\end_inset
+
+נשים לב כי 
+\begin_inset Formula $\text{DFS-VISIT}$
+\end_inset
+
+ נקראת בדיוק פעם אחת עבור 
+\begin_inset Formula $v$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $v$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+לבן
+\begin_inset Quotes erd
+\end_inset
+
+, ומיד בכניסה
+\begin_inset Newline newline
+\end_inset
+
+לפרוצדוקרה 
+\begin_inset Formula $v$
+\end_inset
+
+ הופך ל-
+\begin_inset Quotes erd
+\end_inset
+
+אפור
+\begin_inset Quotes erd
+\end_inset
+
+.
+ בנוסף, מספר הפעולות בלולאת ה-
+\begin_inset Formula $\text{"For"}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+של 
+\begin_inset Formula $\text{DFS-VISIT}$
+\end_inset
+
+ הוא 
+\bar under
+לינארי
+\bar default
+ במספר השכנים של 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ לכן סיבוכיות הקריאות ל-
+\begin_inset Formula $\text{DFS-VISIT}$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathop{\underset{v\in V}{\Sigma}\text{T(DFS-VISIT)\ensuremath{=\mathop{\underset{v\in V}{\Sigma}\theta(|Adj[v]|)=\theta(|E|)}} }}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סה
+\begin_inset Quotes erd
+\end_inset
+
+כ זמן הריצה של 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+: 
+\begin_inset Formula $\Theta(|E|+|V|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+תכונות של
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+DFS
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\bar under
+התכונה הבסיסית:
+\bar default
+ 
+\begin_inset Formula $G_{\pi}$
+\end_inset
+
+ הוא יער, שכן המבנה של עצי 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ מקשף את הקריאות הרקורסיביות ל-
+\begin_inset Formula $\text{DFS-VISIT}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v$
+\end_inset
+
+ הוא צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+ בעץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+DFS
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אם 
+\begin_inset Formula $v$
+\end_inset
+
+ התגלה כאשר 
+\begin_inset Formula $u$
+\end_inset
+
+ היה אפור ולפני שנקבע ערף ל-
+\begin_inset Formula $f[u]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\bar under
+תכונת הסוגריים:
+\bar default
+ נייצג את הגילוי של צומת 
+\begin_inset Formula $u$
+\end_inset
+
+ ע
+\begin_inset Quotes erd
+\end_inset
+
+י סוגר שמאלי 
+\begin_inset Formula $'(u'$
+\end_inset
+
+ ואת סיום הטיפול בו ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $'u)'$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+אזי, ההסטוריה של 
+\begin_inset Quotes eld
+\end_inset
+
+גילוי
+\begin_inset Quotes erd
+\end_inset
+
+ ו
+\begin_inset Quotes erd
+\end_inset
+
+סיום הטיפול
+\begin_inset Quotes erd
+\end_inset
+
+ מגדירה ביטוי שבו הסוגריים מקוננים היטב.
+\end_layout
+
+\begin_layout Subsubsection*
+משפט
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)הסוגריים(:
+\end_layout
+
+\begin_layout Standard
+בכל חיפוש לעומק של גרף מכוון/לא-מכוון 
+\begin_inset Formula $G$
+\end_inset
+
+, לכל שני צמתים 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ מתקיים בדיוק אחד מהתנאים:
+\end_layout
+
+\begin_layout Enumerate
+האנטרוולים 
+\begin_inset Formula $[d[u],f[u]]$
+\end_inset
+
+ ו- 
+\begin_inset Formula $[d[v],f[v]]$
+\end_inset
+
+ זרים לחלוטיןת ואין קשר של אב-קדמון/צאצא
+\begin_inset Newline newline
+\end_inset
+
+בין הצמתים.
+\end_layout
+
+\begin_layout Enumerate
+האנטרוול 
+\begin_inset Formula $[d[u],f[u]]$
+\end_inset
+
+ מוכל ממש בתוף 
+\begin_inset Formula $[d[v],f[v]]$
+\end_inset
+
+ ו-
+\begin_inset Formula $u$
+\end_inset
+
+ צאצא של 
+\begin_inset Formula $v$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $[d[v],f[v]]$
+\end_inset
+
+ מוכל ממש ב-
+\begin_inset Formula $[d[u],f[u]]$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+תכונה נוספת של צאצאים ביער במשפט הבא.
+\end_layout
+
+\begin_layout Subsubsection*
+משפט
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)המסלול הלבן(:
+\end_layout
+
+\begin_layout Standard
+ביער
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+DFS
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ של גרף )מכוון/לא-מכוון( צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ הוא צאצא של צומת 
+\begin_inset Formula $u$
+\end_inset
+
+ אם
+\begin_inset Quotes erd
+\end_inset
+
+ם בזמן 
+\begin_inset Formula $d[v]$
+\end_inset
+
+, הזמן בו 
+\begin_inset Formula $u$
+\end_inset
+
+ התגלה,
+\begin_inset Newline newline
+\end_inset
+
+ניתן להגיע ממנו ל-
+\begin_inset Formula $v$
+\end_inset
+
+ ע
+\begin_inset Quotes erd
+\end_inset
+
+י מסלול המורכב כולו מצמתים לבנים.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נניח ש-
+\begin_inset Formula $v$
+\end_inset
+
+ צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+.
+ יהיה 
+\begin_inset Formula $w$
+\end_inset
+
+צומת על המסלול בין 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+כך ש-
+\begin_inset Formula $w$
+\end_inset
+
+ צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ממשפט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+, 
+\begin_inset Formula $d[u]<d[w]$
+\end_inset
+
+, לכן 
+\begin_inset Formula $w$
+\end_inset
+
+ היה לבן בזמן 
+\begin_inset Formula $d[u]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה שיש מסלול לבן מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ בזמן 
+\begin_inset Formula $d[u]$
+\end_inset
+
+, אבל 
+\begin_inset Formula $v$
+\end_inset
+
+ לא נהיה צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+ בעץ 
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נניח ש-
+\begin_inset Formula $v$
+\end_inset
+
+הוא הצומת שראשון על המסלול הלבן שאנינו צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+יהיה 
+\begin_inset Formula $w$
+\end_inset
+
+ הצומת לפני 
+\begin_inset Formula $v$
+\end_inset
+
+ על המסלול הלבן כך ש-
+\begin_inset Formula $w$
+\end_inset
+
+ צאצא של 
+\begin_inset Formula $u$
+\end_inset
+
+ )או 
+\begin_inset Formula $w=u$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+אזי ממשפט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+ 
+\begin_inset Formula $f[w]\le f[u]$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נשים לב כי 
+\begin_inset Formula $v$
+\end_inset
+
+ מוכרח להתגלות אחרי 
+\begin_inset Formula $u$
+\end_inset
+
+, אבל לפני שנצא בפעם האחרונה מ-
+\begin_inset Formula $w$
+\end_inset
+
+ דהיינו:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d[u]\underbrace{<}_{\text{at d[u] there is a white path to v}}d[v]\underbrace{\le}_{\text{we won't finish with w before we get to v}}f[u]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
