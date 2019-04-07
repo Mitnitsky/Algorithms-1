@@ -112,7 +112,7 @@
 \end_layout
 
 \begin_layout Subsection*
-אלגוריתמים לחיפשו בגרפים
+אלגוריתמים לחיפוש בגרפים
 \end_layout
 
 \begin_layout Subsubsection*
@@ -338,7 +338,7 @@
 \begin_inset Formula $\text{G}$
 \end_inset
 
- שהם ברי-הגיעה מ-
+ שהם ברי-הגעה מ-
 \begin_inset Formula $s$
 \end_inset
 
@@ -444,7 +444,7 @@
 \uwave default
 \noun default
 \color inherit
-לכל צומצ ב-
+לכל צומת ב-
 \lang english
 
 \begin_inset Formula $R$
@@ -474,13 +474,13 @@
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \text{Input: A graph \ensuremath{G=(V,E)} s\ensuremath{\in V}}\\
+ & \text{Input: A graph \ensuremath{G=(V,E)}, s\ensuremath{\in V}}\\
  & \text{Output: For any \ensuremath{v\in V}, \ensuremath{d(v)} is the distance from \ensuremath{s} to \ensuremath{v}.}\\
  & \text{For any \ensuremath{v\in V,} do:}\\
- & \text{ }\text{ }\text{ }d(v)\leftarrow\infty\\
- & \text{ }\text{ }\text{ }d(s)\leftarrow0\\
- & \text{ }\text{ }\text{ }i\leftarrow0\\
- & \text{ \ensuremath{\text{While there is neighbor \ensuremath{v} of \ensuremath{u}with \ensuremath{d(v)}= \ensuremath{\infty} do}}}\\
+ & \text{ }\text{ }d(v)\leftarrow\infty\\
+ & \text{ }\text{ }d(s)\leftarrow0\\
+ & \text{ }\text{ }i\leftarrow0\\
+ & \text{ \ensuremath{\text{While there is neighbor \ensuremath{v} of \ensuremath{u} with \ensuremath{d(v)}= \ensuremath{\infty} do:}}}\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{d(v)\ensuremath{\leftarrow i+1}}\\
  & i\leftarrow i+1
 \end{align*}
@@ -610,14 +610,14 @@
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \text{For any \ensuremath{u\in V\backslash\{s\}}do \ensuremath{\{d(u)\leftarrow\infty,\pi(u)\leftarrow NULL\}}}\\
+ & \text{For any \ensuremath{u\in V\backslash\{s\}} do \ensuremath{\{d(u)\leftarrow\infty,\pi(u)\leftarrow NULL\}}}\\
  & d(s)\leftarrow0\\
  & Q\leftarrow\emptyset\\
  & \text{Enqueue\ensuremath{(Q,s)}}\\
  & \text{While \ensuremath{Q\ne\emptyset} do}\\
  & \text{ }\text{ }u\leftarrow\text{dequeue\ensuremath{(Q)}}\\
  & \text{ }\text{ }\text{Foreach \ensuremath{v\in Adj(u)}do}\\
- & \text{ }\text{ }\text{ }\text{ }\text{if \ensuremath{d(v)=\infty}then}\\
+ & \text{ }\text{ }\text{ }\text{ }\text{if \ensuremath{d(v)=\infty} then:}\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }d(v)\leftarrow d(u)+1\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\pi(v)\leftarrow u\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{Enqueue\ensuremath{(Q,v)}}
@@ -1049,7 +1049,7 @@ d(v)\underbrace{=}_{\text{Algorithm'}}d(u)+1\underbrace{\ge}_{\text{Induction}}\
 \begin_inset Formula $\text{BFS}$
 \end_inset
 
-התור 
+ התור 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -1132,7 +1132,7 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $v_{j}$
 \end_inset
 
-נכנס לתור.
+ נכנס לתור.
  אזי, 
 \begin_inset Formula $d(v_{i})\le d(v_{j})$
 \end_inset
@@ -1153,12 +1153,12 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $v_{j}$
 \end_inset
 
-וסדרת הצמתים שהוכנסו ביניהם ל-
+ וסדרת הצמתים שהוכנסו ביניהם ל-
 \begin_inset Formula $Q$
 \end_inset
 
 : 
-\begin_inset Formula $\{v_{i},v_{i+1},v_{i+1},v_{j}\}$
+\begin_inset Formula $\{v_{i},v_{i+1},v_{i+2},v_{j}\}$
 \end_inset
 
 
