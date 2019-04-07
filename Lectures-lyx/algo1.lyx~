@@ -1276,7 +1276,7 @@ d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
 \begin_inset Formula $\text{BFS}$
 \end_inset
 
-על 
+ על 
 \begin_inset Formula $G$
 \end_inset
 
@@ -1312,7 +1312,7 @@ d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
 \begin_inset Formula $v$
 \end_inset
 
-בר-השגה מ-
+ בר-השגה מ-
 \begin_inset Formula $s$
 \end_inset
 
@@ -1328,7 +1328,7 @@ d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
 \begin_inset Formula $s$
 \end_inset
 
-ל-
+ ל-
 \begin_inset Formula $\pi(v)$
 \end_inset
 
@@ -1414,7 +1414,11 @@ d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
 \begin_inset Formula $s$
 \end_inset
 
- ל-.
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
  יהי 
 \begin_inset Formula $u$
 \end_inset
@@ -1444,7 +1448,7 @@ d(v_{i})\le d(v_{2})\le\dots\le d(v_{l})\le d(v_{j})
 \begin_inset Formula $\delta(s,v)$
 \end_inset
 
-המינימלי שמקיים את אי-השוויון החזק,
+ המינימלי שמקיים את אי-השוויון החזק,
 \begin_inset Newline newline
 \end_inset
 
@@ -1547,7 +1551,7 @@ d(v)>\delta(s,v)=\delta(s,u)+1=d(u)+1\text{ (**)}
 \end_inset
 
 
-\begin_inset Formula $\Leftarrow$
+\begin_inset Formula $\Leftarrow\text{\ensuremath{} }$
 \end_inset
 
  סתירה ל-)**(.
@@ -1557,7 +1561,7 @@ d(v)>\delta(s,v)=\delta(s,u)+1=d(u)+1\text{ (**)}
 \begin_inset Formula $v$
 \end_inset
 
- עוד לא היה בתור.
+ עוד כבר לא היה בתור.
  לכן, 
 \begin_inset Formula $v$
 \end_inset
@@ -1707,7 +1711,7 @@ d(v)>\delta(s,v)=\delta(s,u)+1=d(u)+1\text{ (**)}
 \end_inset
 
  מתקיים 
-\begin_inset Formula $d(v)=d(s,v)$
+\begin_inset Formula $d(v)=\delta(s,v)$
 \end_inset
 
 .
