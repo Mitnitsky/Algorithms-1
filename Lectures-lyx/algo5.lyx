@@ -49,7 +49,7 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \use_minted 0
@@ -371,7 +371,7 @@
 
 
 \begin_inset Graphics
-	filename 5-1.png
+	filename images/5-1.png
 
 \end_inset
 
@@ -679,7 +679,7 @@
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename 5-2.png
+	filename images/5-2.png
 
 \end_inset
 

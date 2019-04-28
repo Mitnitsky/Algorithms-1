@@ -371,7 +371,7 @@
 
 
 \begin_inset Graphics
-	filename 5-1.png
+	filename images/5-1.png
 
 \end_inset
 
@@ -670,7 +670,7 @@
 \end_layout
 
 \begin_layout Standard
-מסלול קל ביותר =
+מסלול קל ביותר = 
 \numeric on
 6
 \numeric off
@@ -679,7 +679,7 @@
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename 5-2.png
+	filename images/5-2.png
 
 \end_inset
 

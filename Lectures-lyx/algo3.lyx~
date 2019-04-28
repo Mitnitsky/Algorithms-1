@@ -1142,7 +1142,7 @@ $
 \end_layout
 
 \begin_layout Subsubsection*
-מסכנה
+מסקנה
 \family roman
 \series bold
 \shape up
@@ -1471,7 +1471,7 @@ $
 \begin_inset Formula $k+1$
 \end_inset
 
-( נניח כי השורש של העף הינו צומת 
+( נניח כי השורש של העץ הינו צומת 
 \begin_inset Formula $u$
 \end_inset
 
@@ -1483,7 +1483,7 @@ $
 \begin_inset Formula $u$
 \end_inset
 
- שייף לרק
+ שייך לרק
 \begin_inset Quotes erd
 \end_inset
 
@@ -1657,15 +1657,19 @@ $
 \color inherit
 3
 \numeric off
-.( כל
+.( 
 \begin_inset Newline newline
 \end_inset
 
-הצמתים ב-
+כל הצמתים ב-
 \begin_inset Formula $C$
 \end_inset
 
- לבנים ממשפט המסלול הלבן, כל הצמתים ב-
+ לבנים ממשפט המסלול הלבן,
+\begin_inset Newline newline
+\end_inset
+
+כל הצמתים ב-
 \begin_inset Formula $C$
 \end_inset
 
@@ -1681,7 +1685,7 @@ $
 \begin_inset Newline newline
 \end_inset
 
--בנוסף ממסקנה
+בנוסף ממסקנה
 \family roman
 \series medium
 \shape up
@@ -1727,7 +1731,7 @@ $
 \begin_inset Newline newline
 \end_inset
 
--לכן הצאצאים של 
+לכן הצאצאים של 
 \begin_inset Formula $u$
 \end_inset
 

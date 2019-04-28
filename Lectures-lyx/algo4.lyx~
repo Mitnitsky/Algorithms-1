@@ -577,14 +577,10 @@ $
 \end_inset
 
 
-\begin_inset Formula $\xymatrix{\overline{X}\save"1,1"."2,3"*+[F=]\frm{}\restore\,\\
-u\ar[ddd]^{e} &  & .\ar[ll]\\
-\\
-\\
-v\ar@{|-|}[rr] &  & .\ar@{|-|}[uuu]^{e'}\\
- &  & X\save"5,1"."6,3"*+[F=]\frm{}\restore\,
-}
-$
+\begin_inset Graphics
+	filename images/4-3.png
+	scale 50
+
 \end_inset
 
 
@@ -764,19 +760,17 @@ $
 
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
-\begin_inset Formula $\xymatrix{ & .\ar[dr]\ar[dl]\\
-*++[s][F]{T_{2}} &  & v\ar[ddl]^{e}\ar[ddr]\\
-\\
- & *++[s][F]{.} &  & *++[s][F]{T_{1}}.\ar@{|-|}[ll]
-}
-$
+\begin_inset Graphics
+	filename images/4-4.png
+	scale 50
+
 \end_inset
 
 
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 לקשת 
 \begin_inset Formula $e$
@@ -954,6 +948,17 @@ $
 \end_inset
 
  את הכלל האדום.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/4-1.png
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -991,6 +996,15 @@ $
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/4-2.png
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

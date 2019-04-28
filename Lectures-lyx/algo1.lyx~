@@ -1224,12 +1224,12 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $v_{k}$
 \end_inset
 
- יוצא ממנו אזי מפני שאין צומת ביניהם בסדרה נובע כי 
-\begin_inset Formula $v_{k}$
+ יוצא ממנו אזי מפני שאין צומת ביניהם בסדרה נובע 
+\begin_inset Newline newline
 \end_inset
 
-
-\begin_inset Newline newline
+כי 
+\begin_inset Formula $v_{k}$
 \end_inset
 
 גורם ל-
@@ -1240,7 +1240,7 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $d(v_{k+1})=d(v_{k})+1$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
