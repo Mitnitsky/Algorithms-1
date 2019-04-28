@@ -585,7 +585,7 @@
 \begin_inset Formula $v$
 \end_inset
 
-בעץ החיפוש.
+ בעץ החיפוש.
 \end_layout
 
 \begin_layout Itemize
@@ -610,13 +610,13 @@
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \text{For any \ensuremath{u\in V\backslash\{s\}} do \ensuremath{\{d(u)\leftarrow\infty,\pi(u)\leftarrow NULL\}}}\\
+ & \text{For any \ensuremath{u\in V\backslash\{s\}} do: \ensuremath{\{d(u)\leftarrow\infty,\pi(u)\leftarrow NULL\}}}\\
  & d(s)\leftarrow0\\
  & Q\leftarrow\emptyset\\
  & \text{Enqueue\ensuremath{(Q,s)}}\\
- & \text{While \ensuremath{Q\ne\emptyset} do}\\
+ & \text{While \ensuremath{Q\ne\emptyset} do}:\\
  & \text{ }\text{ }u\leftarrow\text{dequeue\ensuremath{(Q)}}\\
- & \text{ }\text{ }\text{Foreach \ensuremath{v\in Adj(u)}do}\\
+ & \text{ }\text{ }\text{Foreach \ensuremath{v\in Adj(u)} do:}\\
  & \text{ }\text{ }\text{ }\text{ }\text{if \ensuremath{d(v)=\infty} then:}\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }d(v)\leftarrow d(u)+1\\
  & \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\pi(v)\leftarrow u\\
@@ -1224,12 +1224,12 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $v_{k}$
 \end_inset
 
-יוצא ממנו אזי מפני שאין צומת ביניהם בסדרה נובע כי 
-\begin_inset Formula $v_{k}$
+ יוצא ממנו אזי מפני שאין צומת ביניהם בסדרה נובע 
+\begin_inset Newline newline
 \end_inset
 
-
-\begin_inset Newline newline
+כי 
+\begin_inset Formula $v_{k}$
 \end_inset
 
 גורם ל-
@@ -1240,7 +1240,7 @@ d(v_{r})\le d(v_{1})+1
 \begin_inset Formula $d(v_{k+1})=d(v_{k})+1$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard

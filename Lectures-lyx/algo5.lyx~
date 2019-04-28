@@ -1,0 +1,890 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\end_layout
+
+\begin_layout Subsubsection*
+אלגוריתם 
+\begin_inset Formula $\text{Prim}$
+\end_inset
+
+המשך:
+\end_layout
+
+\begin_layout Standard
+תזכורת - האלגוריתם:
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\begin{align*}
+ & 1.T\leftarrow\emptyset,\,S\leftarrow\{s\}\\
+ & 2.\text{while}S\ne V:\\
+ & \qquad2.1\,e=(u,v)\text{ e is the lightest edge crossing (\ensuremath{S,\overline{S})} assuming \ensuremath{u\in S,v\notin S}}\\
+ & \qquad2.2\:T\leftarrow T\cup\{e\},\quad S\leftarrow S\cup\{v\}\\
+ & 3.\text{Return \ensuremath{T}}
+\end{align*}
+
+\end_inset
+
+ כיצד נממש את האלגוריתם 
+\begin_inset Formula $\text{Prim}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+נשמור את צמתי 
+\begin_inset Formula $S$
+\end_inset
+
+ בערימת מינימום.
+ הערך והמפתח של צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ בערימה יהיה משקל הקשת הקלה ביותר שנוגעת בו ומחברת אותו ל-
+\begin_inset Formula $S$
+\end_inset
+
+ )אם לא קיימת קשת כזו ערך המפתח יהיה 
+\begin_inset Formula $\infty$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+אתחול:
+\end_layout
+
+\begin_layout Standard
+המפתח של 
+\begin_inset Formula $S$
+\end_inset
+
+ יהיה 
+\begin_inset Formula $O$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+המפתח של כל צומת אחר יהיה 
+\begin_inset Formula $\infty$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+צעד:
+\end_layout
+
+\begin_layout Standard
+ברגע שמוציאים את צומת 
+\begin_inset Formula $u$
+\end_inset
+
+ מהערימה, מעדכנים את המפתחות של השכנים שלו שעדיין בערימה.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+סיבוכיות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $O(|E\log|V|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+האלגוריתם של 
+\begin_inset Formula $\text{Kruskal}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+מיין את הקשתות: 
+\begin_inset Formula $w(e_{1})\le w(e_{2})\le\dots\le w(e_{m})$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $T\leftarrow\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+מ-
+\begin_inset Formula $i=1$
+\end_inset
+
+ עד 
+\begin_inset Formula $m$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+אם 
+\begin_inset Formula $T\cup\{e_{i}\}$
+\end_inset
+
+ לא מכיל מעגלים אזי 
+\begin_inset Formula $T\leftarrow T\cup\{e_{i}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+החזר את 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+משפט:
+\end_layout
+
+\begin_layout Standard
+האלגוריתם של 
+\begin_inset Formula $\text{Kruskal}$
+\end_inset
+
+ מחזיר עץ פורש מינימום.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נראה שהאלגוריתם של 
+\begin_inset Formula $\text{Kruskal}$
+\end_inset
+
+ הוא מימוש מסוים של השיטה הכללית.
+ 
+\bar under
+כלומר
+\bar default
+ אם נצבע בכחול כל קשת שהאלגוריתם מוסיף ל-
+\begin_inset Formula $T$
+\end_inset
+
+ ונצבע באדום כל קשת שהאלגוריתם לא מוסיף ל-
+\begin_inset Formula $T$
+\end_inset
+
+, נקבל הפעלה חוקית של הכללים.
+\begin_inset Newline newline
+\end_inset
+
+ממחלק לשני מקרים:
+\end_layout
+
+\begin_layout Enumerate
+ברגע שהאלגוריתם בוחן את 
+\begin_inset Formula $T\cup\{e_{i}\}$
+\end_inset
+
+ מתקיים: 
+\begin_inset Formula $T\cup\{e_{i}\}$
+\end_inset
+
+ מכיל מעגל 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ נשים לב שבמעגל 
+\begin_inset Formula $C$
+\end_inset
+
+ כל הקשתות שייכות ל-
+\begin_inset Formula $T$
+\end_inset
+
+ )פרט ל-
+\begin_inset Formula $e_{i}$
+\end_inset
+
+(, כלומר כולן צבועות בכחול.
+\begin_inset Newline newline
+\end_inset
+
+לפי הכלל האדום, ניתן לצבוע באדום את הקשת הכבדה ביותר ב-
+\begin_inset Formula $C$
+\end_inset
+
+ מבין הקשתות הלא-צבועות.
+ 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ היא הקשת היחידה ב-
+\begin_inset Formula $C$
+\end_inset
+
+ שאינה צבועה ולכן צביעתה באדום היא הפעלה חוקים של הכלל האדום.
+\end_layout
+
+\begin_layout Enumerate
+ברגע שהאלגוריתם בוחן את הקשת 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ מתקיים: ב-
+\begin_inset Formula $T\cup\{e_{i}\}$
+\end_inset
+
+ לא נסגרת מעגל 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename 5-1.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נתבונן בתחום: 
+\begin_inset Formula $S=\{x|\text{there is a path from \ensuremath{x} to \ensuremath{u} in \ensuremath{T}\}}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $u\in S$
+\end_inset
+
+ )מההגדרה(.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $v\notin S$
+\end_inset
+
+ נראה זאת: נניח השלילה כי 
+\begin_inset Formula $v\in S$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ יש ב-
+\begin_inset Formula $T$
+\end_inset
+
+ מסלול )כחול( בין 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ )הגדרת 
+\begin_inset Formula $S$
+\end_inset
+
+(
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $T\cup\{e_{i}\}$
+\end_inset
+
+ מכיל מעגל וזו סתירה.
+\end_layout
+
+\begin_layout Enumerate
+למה אין קשת כחולה שחוצה את 
+\begin_inset Formula $S$
+\end_inset
+
+?
+\begin_inset Newline newline
+\end_inset
+
+נניח בשילה שיש קשת כחולה 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ כך שמתקיים 
+\begin_inset Formula $x\in S,y\notin S$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $x\in S$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ יש מסלול כחול בין 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $x$
+\end_inset
+
+.
+ נשרשר למסלול זה את הקשת 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ וקבלנו מסלול כחול בין 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $y$
+\end_inset
+
+ וזו סתירה לכך ש-
+\begin_inset Formula $y\notin S$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+שאלה:
+\bar default
+ מדוע אין אף קשת 
+\begin_inset Formula $e$
+\end_inset
+
+ שחוצה את 
+\begin_inset Formula $S$
+\end_inset
+
+, אינה צבועה וגם 
+\begin_inset Formula $w(e)<w(e_{i})$
+\end_inset
+
+?
+\begin_inset Newline newline
+\end_inset
+
+אם זה קורה, 
+\begin_inset Formula $e$
+\end_inset
+
+הייתה צריכה להיצבע באיטרציה קודמת וזו סתירה.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ זו הפעלה חוקית של הכלל הכחול.
+ 
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+כיצד ניתן לממש את האלגוריתם ?
+\end_layout
+
+\begin_layout Standard
+הרעיון: הכל איטרציה נרצה לשמור את רכיבי הקשירות של 
+\begin_inset Formula $(V,T)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נשתמש ב-
+\begin_inset Formula $\text{union find}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+הפעולות שצריך בכל איטרציה:
+\end_layout
+
+\begin_layout Enumerate
+לבדוק האם שני רכיבי קשירות באותה קבוצה.
+\end_layout
+
+\begin_layout Enumerate
+אולי לאחד שני רכיבי קשירות.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סה
+\begin_inset Quotes erd
+\end_inset
+
+כ סיבוכיות: 
+\begin_inset Formula $O(|E|\log|V|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+מסלולים קלים ביותר
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+נתון:
+\end_layout
+
+\begin_layout Standard
+גרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, פונקציית משקל 
+\begin_inset Formula $W:E\rightarrow\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+משקל
+\bar default
+ של מסלול 
+\begin_inset Formula $p$
+\end_inset
+
+ מוגדר להיות סך משקלי הקשתות ב-
+\begin_inset Formula $p$
+\end_inset
+
+: 
+\begin_inset Formula $[w(p)\overset{\triangle}{=}\underset{e\in p}{\Sigma}w(e)]$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+מטרה:
+\end_layout
+
+\begin_layout Standard
+בהינתן שני צמתים 
+\begin_inset Formula $s$
+\end_inset
+
+ ו-
+\begin_inset Formula $t$
+\end_inset
+
+, מהו המסלול 
+\bar under
+הקל ביותר
+\bar default
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $t$
+\end_inset
+
+?
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+מסלול קל ביותר =
+\numeric on
+6
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 5-2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+אם יש מעגל שלילי בגרף )מעגל שסכום משקלי הקשתות בו קטן ממש מאפס, אזי מרחקים
+ קלים ביותר לא בהכרח מוגדרים(.
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+הערה:
+\bar default
+ המקרה ש- 
+\begin_inset Formula $\forall e\in E\qquad w(e)=1$
+\end_inset
+
+ נפתר ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $\text{BFS}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+הבחנה:
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $p$
+\end_inset
+
+ מסלול קל ביותר מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+, כל תת-מסלול של 
+\begin_inset Formula $p$
+\end_inset
+
+ גם הוא קל ביותר.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נסתכל על 
+\begin_inset Formula $p$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p:\,u=u_{0}\overset{e_{1}}{\rightarrow}u_{1}\overset{e_{2}}{\rightarrow}u_{2}\rightarrow\dots\rightarrow u_{k-1}\rightarrow u_{k}=v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נתבונן בתת-המסלול מ-
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ ל-
+\begin_inset Formula $u_{j}$
+\end_inset
+
+
+\begin_inset Formula $(i<j)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מתקיים: 
+\begin_inset Formula $u\overset{p'}{\rightarrow}u_{i}\overset{p_{ij}}{\rightarrow}u_{j}\overset{p''}{\rightarrow}v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $w(p)=w(p')+w(p_{ij})+w(p'')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה ש-
+\begin_inset Formula $p_{ij}$
+\end_inset
+
+אינו קל ביותר.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ יש מסלול 
+\begin_inset Formula $q$
+\end_inset
+
+ מ-
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ ל-
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ כך ש-
+\begin_inset Formula $w(q)<w(p_{ij})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבנה מסלול חדש מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ באופן הבא: 
+\begin_inset Formula $u\overset{p'}{\rightarrow}u_{i}\overset{q}{\rightarrow}u_{j}\overset{p''}{\rightarrow}v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+שאורכו: 
+\begin_inset Formula $w(p)=w(p')+w(q)+w(p'')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+וזו סתירה סתירה 
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נסמן ב- 
+\begin_inset Formula $\delta(u,v)$
+\end_inset
+
+ את אורך המסלול הקל ביותר מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta(u,v)=\begin{cases}
+\infty & \text{\ensuremath{v} is not reachable from \ensuremath{u}}\\
+\\
+-\infty & \text{"negative" circle reachable from \ensuremath{u}}\\
+ & \text{and v reachable from the circle }\\
+ & \text{}\\
+\text{min}\{w(p):\text{\ensuremath{p}\ensuremath{=}path\:from\,\ensuremath{u}\,to\,\ensuremath{v}}\} & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

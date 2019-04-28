@@ -433,7 +433,7 @@
 \begin_inset Formula $d[v]$
 \end_inset
 
- זמן גילוי זל 
+ זמן גילוי של 
 \begin_inset Formula $v$
 \end_inset
 
@@ -458,15 +458,15 @@
 \begin{align*}
 \text{} & \text{DFS:}\\
  & \text{1.For all \ensuremath{v\in V} \ensuremath{d[v]\leftarrow0,}\ensuremath{\pi[v]\leftarrow null}}\\
- & \text{   mark all edges "unused"}\\
- & \text{ \ensuremath{}}i\leftarrow0,\text{ \ensuremath{v\leftarrow s}}\\
- & \text{2.}i\leftarrow i+1\text{ \ensuremath{d[v]\leftarrow i}}\\
+ & \text{ \ensuremath{\qquad}mark all edges "unused"}\\
+ & \text{ }\qquad i\leftarrow0,\text{ \ensuremath{v\leftarrow s}}\\
+ & \text{2.}i\leftarrow i+1,\text{ \ensuremath{d[v]\leftarrow i}}\\
  & \text{3.While there are unused out-edges from \ensuremath{v},}\\
- & \text{     choose unused edges \ensuremath{(v,u)}, mark \ensuremath{(v,u)} as used}\\
- & \text{     if \ensuremath{d[u]=0:\text{ \ensuremath{\{\pi[u]\leftarrow v,v\leftarrow u,i\leftarrow i+1,d[v]\leftarrow i\}}}}}\\
+ & \text{ \ensuremath{\qquad}choose unused edges \ensuremath{(v,u)}, mark \ensuremath{(v,u)} as used}\\
+ & \text{ \ensuremath{\qquad}if \ensuremath{d[u]=0:\text{ \ensuremath{\{\pi[u]\leftarrow v,v\leftarrow u,i\leftarrow i+1,d[v]\leftarrow i\}}}}}\\
  & \text{4.If \ensuremath{\pi[v]\ne null}then \ensuremath{v\leftarrow\pi[v]} and go to (3)}\\
- & \text{    else if there is \ensuremath{u\in V}with \ensuremath{d[u]=0} then}\\
- & \text{        \ensuremath{v\in u}and go to (2)}\\
+ & \text{ \ensuremath{\qquad}else if there is \ensuremath{u\in V}with \ensuremath{d[u]=0} }\\
+ & \text{ \ensuremath{\qquad}\ensuremath{\text{then }v\in u} and go to (2)}.\\
  & \text{5.stop}
 \end{align*}
 
@@ -531,17 +531,18 @@
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \text{For each \ensuremath{u\in V}do \ensuremath{\{}color\ensuremath{[u]\leftarrow}white, \ensuremath{\pi[u]\leftarrow null\}}}\\
- & \text{For each \ensuremath{u\in V}do}\\
- & \text{     if color\ensuremath{[u]=}white then DFS-VISIT(\ensuremath{u})}\\
+ & \text{For each \ensuremath{u\in V}do: }\\
+ & \qquad\ensuremath{\{}\text{color}\ensuremath{[u]\leftarrow}\text{white},\ensuremath{\pi[u]\leftarrow null\}}\\
+ & \text{For each \ensuremath{u\in V}do}:\\
+ & \text{\ensuremath{\qquad}if color\ensuremath{[u]=}white then DFS-VISIT(\ensuremath{u})}\\
  & \text{DFS-VISIT(u):}\\
- & \text{color\ensuremath{[u]\leftarrow}gray}\\
- & i\leftarrow i+1\\
- & d[u]\leftarrow i\\
- & \text{For each \ensuremath{v\in Adj[i]} do}\\
- & \text{    if color[\ensuremath{v}]\ensuremath{=}white then \ensuremath{\{\pi[v]\leftarrow u,\text{ DFS-VISIT\ensuremath{(}\ensuremath{v)\}}}}}\\
- & i\leftarrow i+1\\
- & f[u]\leftarrow i
+ & \qquad color\ensuremath{[u]\leftarrow}gray\\
+ & \qquad i\leftarrow i+1\\
+ & \qquad d[u]\leftarrow i\\
+ & \text{\qquad For each \ensuremath{v\in Adj[i]} do}\\
+ & \text{\qquad\qquad if color[\ensuremath{v}]\ensuremath{=}white then \ensuremath{\{\pi[v]\leftarrow u,\text{ DFS-VISIT\ensuremath{(}\ensuremath{v)\}}}}}\\
+ & \qquad i\leftarrow i+1\\
+ & \qquad f[u]\leftarrow i
 \end{align*}
 
 \end_inset
@@ -595,7 +596,11 @@
 \uwave off
 \noun off
 \color none
-DFS :
+
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+ :
 \end_layout
 
 \begin_layout Itemize
@@ -631,7 +636,7 @@ DFS :
 \begin_inset Formula $v$
 \end_inset
 
-
+ 
 \begin_inset Quotes erd
 \end_inset
 
@@ -643,7 +648,7 @@ DFS :
 \begin_inset Newline newline
 \end_inset
 
-לפרוצדוקרה 
+לפרוצדורה 
 \begin_inset Formula $v$
 \end_inset
 
@@ -740,7 +745,11 @@ DFS :
 \noun default
 \color inherit
 \lang english
-DFS
+
+\begin_inset Formula $\text{DFS}$
+\end_inset
+
+
 \lang hebrew
 :
 \end_layout
@@ -835,7 +844,7 @@ DFS
 \begin_inset Formula $u$
 \end_inset
 
- היה אפור ולפני שנקבע ערף ל-
+ היה אפור ולפני שנקבע ערך ל-
 \begin_inset Formula $f[u]$
 \end_inset
 
@@ -871,7 +880,7 @@ DFS
 \begin_inset Newline newline
 \end_inset
 
-אזי, ההסטוריה של 
+אזי, ההיסטוריה של 
 \begin_inset Quotes eld
 \end_inset
 
@@ -973,7 +982,7 @@ DFS
 \begin_inset Formula $[d[v],f[v]]$
 \end_inset
 
- זרים לחלוטיןת ואין קשר של אב-קדמון/צאצא
+ זרים לחלוטין ואין קשר של אב-קדמון/צאצא
 \begin_inset Newline newline
 \end_inset
 
@@ -1086,7 +1095,11 @@ DFS
 \uwave default
 \noun default
 \color inherit
-)המסלול הלבן(:
+)
+\bar under
+המסלול הלבן
+\bar default
+(:
 \end_layout
 
 \begin_layout Standard
@@ -1144,18 +1157,14 @@ DFS
 \end_inset
 
 ם בזמן 
-\begin_inset Formula $d[v]$
+\begin_inset Formula $d[u]$
 \end_inset
 
 , הזמן בו 
 \begin_inset Formula $u$
 \end_inset
 
- התגלה,
-\begin_inset Newline newline
-\end_inset
-
-ניתן להגיע ממנו ל-
+ התגלה,ניתן להגיע ממנו ל-
 \begin_inset Formula $v$
 \end_inset
 
@@ -1192,7 +1201,7 @@ DFS
 \begin_inset Formula $w$
 \end_inset
 
-צומת על המסלול בין 
+ צומת על המסלול בין 
 \begin_inset Formula $u$
 \end_inset
 
@@ -1204,7 +1213,7 @@ DFS
 \begin_inset Formula $\text{DFS}$
 \end_inset
 
-כך ש-
+ כך ש-
 \begin_inset Formula $w$
 \end_inset
 
@@ -1300,7 +1309,7 @@ DFS
 \begin_inset Formula $v$
 \end_inset
 
-הוא הצומת שראשון על המסלול הלבן שאנינו צאצא של 
+ הוא הצומת הראשון על המסלול הלבן שאנינו צאצא של 
 \begin_inset Formula $u$
 \end_inset
 

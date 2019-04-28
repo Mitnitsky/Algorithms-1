@@ -101,9 +101,9 @@ linguistics
 \end_inset
 
 
-\begin_inset Formula $\xymatrix{ & *++[o][F]{u}\ar[dl]\\
+\begin_inset Formula $\xymatrix{ & *++[o][F]{u}\ar[dl]\save"1,1"."2,3"*+[F=]\frm{}\restore\\
 *++[o][F]{v}\ar[d]\ar[rr] &  & *++[o][F]{w}\ar[ul]\\
-*++[o][F]{y} & *++[o][F]{x}\ar[ul]
+*++[o][F]{y}\save"3,1"."3,1"*+[F=]\frm{}\restore & *++[o][F]{x}\ar[ul]\save"3,2"."3,2"*+[F=]\frm{}\restore
 }
 $
 \end_inset
@@ -151,7 +151,7 @@ $
 \begin_inset Formula $v$
 \end_inset
 
-ל-
+ ל-
 \begin_inset Formula $u$
 \end_inset
 
@@ -179,7 +179,7 @@ $
 \begin_inset Newline newline
 \end_inset
 
-צומת בודד לכול להיות רק
+צומת בודד יכול להיות רק
 \begin_inset Quotes erd
 \end_inset
 
@@ -223,7 +223,7 @@ $
 \begin_inset Formula $\text{G}$
 \end_inset
 
-.(
+(.
 \begin_inset Newline newline
 \end_inset
 
@@ -231,7 +231,7 @@ $
 \begin_inset Formula $G$
 \end_inset
 
-וב
+ וב-
 \begin_inset Formula $G^{T}$
 \end_inset
 
@@ -275,10 +275,10 @@ $
  & \text{Strongly Connected Comptonents (G)}\\
  & \text{1.Call DFS to compute f[u] for all \ensuremath{u\in V}}\\
  & \text{2.Compute \ensuremath{G^{T}}}\\
- & \text{3.Call DFS\ensuremath{(G^{T})}but in the main loop consider the vertices}\\
- & \text{   in decreasing order of \ensuremath{f[u]}(as computed in 1.)}\\
- & \text{4.Output the certices in each DFS tree generated in 3.}\\
- & \text{   as a seperate component.}
+ & \text{3.Call DFS\ensuremath{(G^{T})} but in the main loop consider the vertices}\\
+ & \text{\ensuremath{\quad}in decreasing order of \ensuremath{f[u]}(as computed in 1.)}\\
+ & \text{4.Output the vertices in each DFS tree generated in 3.}\\
+ & \text{\ensuremath{\quad}as a seperate component.}
 \end{align*}
 
 \end_inset
@@ -291,10 +291,42 @@ $
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\xymatrix{*++[o][F]{a}\ar[r] & *++[o][F]{b}\ar[r]\ar[d]\ar[dl] & *++[o][F]{c}\ar@(ur,ul)[r]\ar[d] & *++[o][F]{d}\ar@(dl,dr)[l]\ar[d]\\
-*++[o][F]{e}\ar[r]\ar[u] & *++[o][F]{f}]\ar@(ur,ul)[r] & *++[o][F]{g}\ar@(dl,dr)[l] & *++[o][F]{h}\ar[d]\ar@(dl,dr)[l]\\
-*++[o][F]{a}\ar[d] & *++[o][F]{b}\ar[l] & *++[o][F]{c}\ar@(dr,dl)[r]\ar[l] & *++[o][F]{d}\ar@(ul,ur)[l]\\
-*++[o][F]{e}\ar[ur] & *++[o][F]{f}\ar@(dr,dl)[r]\ar[u]\ar[l] & *++[o][F]{g}\ar[u]\ar@(ul,ur)[l] & *++[o][F]{h}\ar[l]\ar[u]\ar@(ur,dr)
+\begin_inset Formula $\xymatrix{ & *++[o][F]{\begin{array}{c}
+d=13\\
+f=14\\
+a
+\end{array}}\ar[r] & *++[o][F]{\begin{array}{c}
+d=11\\
+f=16\\
+b
+\end{array}}\ar[r]\ar[d]\ar[dl] & *++[o][F]{\begin{array}{c}
+d=1\\
+f=10\\
+c
+\end{array}}\ar@(ur,ul)[r]\ar[d] & *++[o][F]{\begin{array}{c}
+d=8\\
+f=9\\
+d
+\end{array}}\ar@(dl,dr)[l]\ar[d]\\
+ & *++[o][F]{\begin{array}{c}
+d=12\\
+f=15\\
+e
+\end{array}}\ar[r]\ar[u] & *++[o][F]{\begin{array}{c}
+d=5\\
+f=6\\
+f
+\end{array}}]\ar@(ur,ul)[r] & *++[o][F]{\begin{array}{c}
+d=2\\
+f=7\\
+g
+\end{array}}\ar@(dl,dr)[l] & *++[o][F]{\begin{array}{c}
+d=3\\
+f=4\\
+h
+\end{array}}\ar[d]\ar@(dl,dr)[l]\\
+*++[o][F]{a}\ar[d]\save"3,1"."4,2"*+[F=]\frm{}\restore & *++[o][F]{b}\ar[l] &  & *++[o][F]{c}\ar@(dr,dl)[r]\ar[ll] & *++[o][F]{d}\ar@(ul,ur)[l]\save"3,4"."3,5"*+[F=]\frm{}\restore\\
+*++[o][F]{e}\ar[ur] &  & *++[o][F]{f}\ar@(dr,dl)[r]\ar[ul]\ar[ll] & *++[o][F]{g}\ar[u]\ar@(ul,ur)[l]\save"4,3"."4,4"*+[F=]\frm{}\restore & *++[o][F]{h}\ar[l]\ar[u]\ar@(ur,dr)\save"4,5"."4,5"*+[F=]\frm{}\restore
 }
 $
 \end_inset
@@ -313,11 +345,11 @@ $
 \end_layout
 
 \begin_layout Standard
-זמן הרצה נקבע ע
+זמן הריצה נקבע ע
 \begin_inset Quotes erd
 \end_inset
 
-י
+י:
 \end_layout
 
 \begin_layout Enumerate
@@ -338,7 +370,7 @@ $
 
 \begin_layout Enumerate
 יצירת 
-\begin_inset Formula $G^{T}$
+\begin_inset Formula $:G^{T}$
 \end_inset
 
  
@@ -597,7 +629,7 @@ $
 \end_inset
 
 אזי לא ייתכן שיש מסלול מכוון מ-
-\begin_inset Formula $v'\rightarrow u'$
+\begin_inset Formula $v'\rightarrow v$
 \end_inset
 
 .
@@ -779,7 +811,7 @@ $
 \begin_inset Formula $C'$
 \end_inset
 
- שני קר
+ שני רק
 \begin_inset Quotes erd
 \end_inset
 
@@ -839,7 +871,7 @@ $
 \begin_inset Formula $d(C)<d(C')$
 \end_inset
 
- ויהיו 
+ ויהי 
 \begin_inset Formula $x$
 \end_inset
 
@@ -864,19 +896,22 @@ $
 \end_inset
 
  לבנים.
- היות ו- 
-\begin_inset Formula $(u,v)\in E$
-\end_inset
-
- 
 \begin_inset Newline newline
 \end_inset
 
-יש מסלול שמורכב רק מצמתים לבנים מ-
+היות ו- 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+ יש מסלול שמורכב רק מצמתים לבנים מ-
 \begin_inset Formula $x$
 \end_inset
 
- לכל צומת ב-
+
+\begin_inset Newline newline
+\end_inset
+
+לכל צומת ב-
 \begin_inset Formula $C$
 \end_inset
 
@@ -945,7 +980,7 @@ $
 
 \begin_layout Enumerate
 אם 
-\begin_inset Formula $\boldsymbol{d(C)>d(C')}$
+\begin_inset Formula $d(C)>d(C')$
 \end_inset
 
 , אזי יהי 
@@ -1051,7 +1086,7 @@ $
 \color inherit
 1
 \numeric off
-ת לא ייתכן שיש מסלול מ-
+ לא ייתכן שיש מסלול מ-
 \begin_inset Formula $C'$
 \end_inset
 
@@ -1107,7 +1142,7 @@ $
 \end_layout
 
 \begin_layout Subsubsection*
-מסכנה
+מסקנה
 \family roman
 \series bold
 \shape up
@@ -1184,7 +1219,36 @@ $
 \begin_inset Formula $G$
 \end_inset
 
- )בצעד ו של 
+ )בצעד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+ של 
 \begin_inset Formula $\text{SCC}$
 \end_inset
 
@@ -1266,7 +1330,7 @@ $
 \end_inset
 
 נקבל כי 
-\begin_inset Formula $f(C')>f(C)$
+\begin_inset Formula $f(C)<f(C')$
 \end_inset
 
  
@@ -1407,7 +1471,7 @@ $
 \begin_inset Formula $k+1$
 \end_inset
 
-( נניח כי השורש של העף הינו צומת 
+( נניח כי השורש של העץ הינו צומת 
 \begin_inset Formula $u$
 \end_inset
 
@@ -1419,7 +1483,7 @@ $
 \begin_inset Formula $u$
 \end_inset
 
- שייף לרק
+ שייך לרק
 \begin_inset Quotes erd
 \end_inset
 
@@ -1593,15 +1657,19 @@ $
 \color inherit
 3
 \numeric off
-.( כל
+.( 
 \begin_inset Newline newline
 \end_inset
 
-הצמתים ב-
+כל הצמתים ב-
 \begin_inset Formula $C$
 \end_inset
 
- לבנים ממשפט המסלול הלבן, כל הצמתים ב-
+ לבנים ממשפט המסלול הלבן,
+\begin_inset Newline newline
+\end_inset
+
+כל הצמתים ב-
 \begin_inset Formula $C$
 \end_inset
 
@@ -1617,7 +1685,7 @@ $
 \begin_inset Newline newline
 \end_inset
 
--בנוסף ממסקנה
+בנוסף ממסקנה
 \family roman
 \series medium
 \shape up
@@ -1663,7 +1731,7 @@ $
 \begin_inset Newline newline
 \end_inset
 
--לכן הצאצאים של 
+לכן הצאצאים של 
 \begin_inset Formula $u$
 \end_inset
 
