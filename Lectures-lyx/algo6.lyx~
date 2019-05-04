@@ -1,0 +1,1696 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+6
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אלגוריתמים
+\end_layout
+
+\begin_layout Subsubsection*
+תזכורת: מסלולים קלים ביותר
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+נתון:
+\end_layout
+
+\begin_layout Itemize
+גרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ופונ' משקל :
+\begin_inset Formula $W:E\rightarrow\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+צומת 
+\begin_inset Formula $s\in V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+מטרה:
+\end_layout
+
+\begin_layout Standard
+למצוא לכל 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ מסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+אורך
+\begin_inset Quotes erd
+\end_inset
+
+ נמדד ע
+\begin_inset Quotes erd
+\end_inset
+
+י סכום משקלי הקשתות שבמסלול.
+\end_layout
+
+\begin_layout Standard
+מסמנים ב-
+\begin_inset Formula $\delta(u,v)$
+\end_inset
+
+ את אורך המסלול הקשל ביותר ב-
+\begin_inset Formula $G$
+\end_inset
+
+ מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta(u,v)=\begin{cases}
+\infty & v\text{-non reachable from \ensuremath{u}}\\
+\\
+-\infty & \text{there is "negative circle"}\\
+ & \text{reachable from u and}\\
+ & \text{v is reachable from the circle}\\
+\\
+min\{w(p):\text{p-path from \ensuremath{u}to \ensuremath{v\}}} & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $p$
+\end_inset
+
+ מסלול קל ביותר מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+, אז כל תת-מסלול שלו הוא קל ביותר.
+\end_layout
+
+\begin_layout Subsubsection*
+טענה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\xymatrix{ & *++[o][F]{u}\ar@{~>}[dr]\\
+*++[o][F]{s}\ar@{~>}[ur]\ar@{~>}[rr] &  & *++[o][F]{v}
+}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+לכל קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta(s,v)\le\delta(s,u)+w(u\rightarrow v)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/6-1.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אם אין מסלול מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $u$
+\end_inset
+
+ אז 
+\begin_inset Formula $\delta(s,u)=\infty$
+\end_inset
+
+ וסיימנו.
+\begin_inset Newline newline
+\end_inset
+
+אחרת, נסתכל על המסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $u$
+\end_inset
+
+, ונשרשר לו את הקשת 
+\begin_inset Formula $(u\rightarrow v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ אחרת המסלול החדש הוא 
+\begin_inset Formula $\delta(s,u)+w(u\rightarrow v)$
+\end_inset
+
+ ולכן אי-השוויון מתקיים.
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+השיטה הגנרית:
+\end_layout
+
+\begin_layout Enumerate
+אתחול: 
+\begin_inset Formula $d(s)\leftarrow0$
+\end_inset
+
+ , ולכל 
+\begin_inset Formula $u\ne s$
+\end_inset
+
+: 
+\begin_inset Formula $d(u)\leftarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+כל עוד קיימת קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ כך ש:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(v)>d(u)+w(u\rightarrow v)$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(v)\leftarrow d(u)+w(u\rightarrow v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+משפט:
+\end_layout
+
+\begin_layout Standard
+אם אין מעגלים שליליים בגרף, אז:
+\end_layout
+
+\begin_layout Enumerate
+לכל צומת 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ ולכל שלב בריצת השיטה הגנרית : 
+\begin_inset Formula $d(v)\ge\delta(s,v)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+כשה השיטה הגנרית עוצרת, אז:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(v)=\delta(s,v)\quad\forall v\in V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Enumerate
+נוכיח באינדוקציה על הצעדים של השיטה הגנרית.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+בסיס:
+\begin_inset Newline newline
+\end_inset
+
+באתחול 
+\begin_inset Formula $d(u)$
+\end_inset
+
+ לכל 
+\begin_inset Formula $u\ne s$
+\end_inset
+
+ שווה ל-
+\begin_inset Formula $\infty$
+\end_inset
+
+ ועבור 
+\begin_inset Formula $s$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $d(s)=0\underbrace{=}_{\text{\mathclap{there}is no negative circles in G}}\delta(s,s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+צעד:
+\begin_inset Newline newline
+\end_inset
+
+בהינתן קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ שהפרה את אי-שוויון המשלולש ביחס לסימונים 
+\begin_inset Formula $d$
+\end_inset
+
+, 
+\begin_inset Newline newline
+\end_inset
+
+ביצענו: 
+\begin_inset Formula $d(v)\leftarrow d(u)+w(u\rightarrow v)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & d(v)=d(u)+w(u\rightarrow v)\\
+ & \underbrace{\ge}_{\mathclap{\text{induction on d(u)}}}\delta(s,u)+w(u\rightarrow v)\underbrace{\ge}_{\mathclap{\text{triangle inequality}}}\delta(s,v)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+מ-א, מספיק להראות שהשיטה הגנרית עוצרת שלכל 
+\begin_inset Formula $v\in V$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(v)\le\delta(s,v)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/6-2.png
+	scale 75
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נניח בשלילה שקיים צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ עבורו:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d(v)>\delta(s,v)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Formula $\delta(s,v)$
+\end_inset
+
+ אינו יכול להיות 
+\begin_inset Formula $\infty$
+\end_inset
+
+, ובגלל שאין מעגלים שליליים, 
+\begin_inset Formula $\delta(s,v)$
+\end_inset
+
+ סופי.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+יהיה 
+\begin_inset Formula $p$
+\end_inset
+
+ מסלול קל ביותר כלשהו מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p=v_{1}\rightarrow v_{2}\rightarrow\dots\rightarrow v_{k-1}\rightarrow v_{k}=v
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+עבור 
+\begin_inset Formula $s$
+\end_inset
+
+: 
+\begin_inset Formula $d(s)=\delta(s,s)$
+\end_inset
+
+ )כי אין מעגלים שליליי(.
+\begin_inset Newline newline
+\end_inset
+
+עבור 
+\begin_inset Formula $v$
+\end_inset
+
+: 
+\begin_inset Formula $d(v)>\delta(s,v)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ולא קיים אף צומת 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+במסלול כך ש-
+\begin_inset Formula $d(v_{i})<\delta(s,v_{i})$
+\end_inset
+
+ )בגלל א(.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+קיימת קשת ב-
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\begin_inset Formula $(v_{i}\rightarrow v_{i+1})$
+\end_inset
+
+ כך ש:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+d(v_{i})=\delta(s,v_{i})\\
+d(v_{i+1})>\delta(s,v_{i+1})
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+)וזו הקשת הראשונה שבה זה קורה(.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & d(v_{i+1})>\delta(s,v_{i+1})\underbrace{=}_{\mathclap{\text{1.sub-path of lightest path is lightest. }}}\delta(s,v_{i})+w(v_{i}\rightarrow v_{i+1})\\
+ & =d(v_{i})+w(v_{i}\rightarrow v_{i+1})
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+הקשת 
+\begin_inset Formula $(v_{i}\rightarrow v_{i+1})$
+\end_inset
+
+ מפרה את אי-שוויון המשלול ביחס לסימונים 
+\begin_inset Formula $d$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+השיטה הגנרית לא היתה צריכה לעצורה.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+)סכום משקלי הקשתות הריש של 
+\begin_inset Formula $\delta$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל
+\numeric on
+-
+\numeric off
+
+\begin_inset Formula $v_{i+1}$
+\end_inset
+
+(
+\begin_inset Formula $\delta(s,v_{i+1})\underbrace{=}_{(1)}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $=w(v_{0}\rightarrow v_{1})+w(v_{1}\rightarrow v_{2})+\dots+w(v_{i-1}\rightarrow v_{i})+w(v_{i}+v_{i+1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $w(v_{i}\rightarrow v_{i+1})$
+\end_inset
+
++סכום משקלי הקשתות ברישא של 
+\begin_inset Formula $p$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+=
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\underbrace{=}_{(1)}\delta(s,v_{i})+w(v_{i},v_{i+1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד ניתן לשחזר איזשהו מסלול קל ביותר ?
+\end_layout
+
+\begin_layout Standard
+לכל צומת 
+\begin_inset Formula $v\in V$
+\end_inset
+
+מסמן ב-
+\begin_inset Formula $\pi(v)$
+\end_inset
+
+את הצומת שגרם לעדכון האחרון של 
+\begin_inset Formula $d(v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+אתחול: 
+\begin_inset Formula $\pi(V)\leftarrow NULL$
+\end_inset
+
+ 
+\begin_inset Formula $\forall v\in V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+בעדכון: שהקשת 
+\begin_inset Formula $(u\rightarrow v)$
+\end_inset
+
+ מבצעת עדכון ל-
+\begin_inset Formula $d(v)$
+\end_inset
+
+ נצבע: 
+\begin_inset Formula $\pi(v)\leftarrow u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה:
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+עץ מסלולים קלים ביותר
+\bar default
+ של 
+\begin_inset Formula $G$
+\end_inset
+
+ ו-
+\begin_inset Formula $s$
+\end_inset
+
+ הוא תת-גרף 
+\begin_inset Formula $G'=(V',E')$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+של 
+\begin_inset Formula $G$
+\end_inset
+
+ כך ש:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $V'$
+\end_inset
+
+ זה אוסף הצמתים הישיגיים מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $G'$
+\end_inset
+
+ הוא מכוון ששורשו 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+לכל 
+\begin_inset Formula $v\in V'$
+\end_inset
+
+ המסלול היחיד ב-
+\begin_inset Formula $G'$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ הוא מסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ ב-
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+אם אין מעגלים שליליים, אז שהשיטה הגנרית עוצרת, נסתכל על הגרף הבא:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & G'=(V',E')\\
+ & V'=\{v:\pi(v)\ne NULL\}\cup\{s\}\\
+ & E'=\{(\pi(v)\rightarrow v):\pi(v)\ne NULL)\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אז 
+\begin_inset Formula $G'$
+\end_inset
+
+ הוא עץ מסלולים קלים ביותר של 
+\begin_inset Formula $G$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Quotes eld
+\end_inset
+
+הוכחה
+\begin_inset Quotes erd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+שלבים להוכחה)לא נוכיח(:
+\end_layout
+
+\begin_layout Itemize
+בכל שלב בריצה של השיטה הגנרית, 
+\begin_inset Formula $G'$
+\end_inset
+
+ חסר מעגלים מכוונים.
+\end_layout
+
+\begin_layout Itemize
+בסיום הריצה, 
+\begin_inset Formula $V'$
+\end_inset
+
+ זה אוסף הצמתים הישיגים מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+בסיום הריצה, המסלול היחיד ב-
+\begin_inset Formula $G'$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+הוא מסלול קל ביותר ב-
+\begin_inset Formula $G$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נתמקד במקרה שמשקלים הם אי-שליליים, כלומר 
+\begin_inset Formula $\forall(u\rightarrow v)\in E\quad,w(u\rightarrow v)\ge0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/6-3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+האלג' של 
+\begin_inset Formula $\text{Dijkestra}$
+\end_inset
+
+
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)
+\numeric on
+1959
+\numeric off
+(
+\end_layout
+
+\begin_layout Enumerate
+אתחול:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(s)=0$
+\end_inset
+
+, ולכל 
+\begin_inset Formula $u\ne s$
+\end_inset
+
+ 
+\begin_inset Formula $d(u)\le\infty$
+\end_inset
+
+, 
+\begin_inset Formula $Q\leftarrow V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+כל עוד 
+\begin_inset Formula $Q\ne\emptyset$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+יהי 
+\begin_inset Formula $u$
+\end_inset
+
+ הצומת בעל 
+\begin_inset Formula $d$
+\end_inset
+
+ הקטן ביותר ב-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+לכל קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+, אם 
+\begin_inset Formula $d(v)>d(u)+w(u\rightarrow v)$
+\end_inset
+
+ אז:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $d(v)\leftarrow d(u)+w(u\rightarrow v)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+הוצא את 
+\begin_inset Formula $u$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+זמן ריצה:
+\end_layout
+
+\begin_layout Standard
+למשל, אם ממשים את 
+\begin_inset Formula $Q$
+\end_inset
+
+ בעזרת ערימת מינימום זמן הריצה הכולל: 
+\begin_inset Formula $O(|E|\log|V|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+נכונות:
+\end_layout
+
+\begin_layout Standard
+מנכונות השיטה הגנרית, מספיק שנראה שהאלג' של 
+\begin_inset Formula $\text{Dijkestra}$
+\end_inset
+
+ עוצר
+\begin_inset Newline newline
+\end_inset
+
+וכל הקשתות 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ מקיימות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d(v)\le d(u)+w(u\rightarrow v)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+נניח באיטרציה מסויימת 
+\begin_inset Formula $u$
+\end_inset
+
+ יצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+, ובאיטרציה העוקבת לה 
+\begin_inset Formula $v$
+\end_inset
+
+ יצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ אז:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d(u)$
+\end_inset
+
+ ברגע ההוצאת 
+\begin_inset Formula $u$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d(v)$
+\end_inset
+
+ ברגע ההוצאת 
+\begin_inset Formula $v$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ומתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d(u)\le d(v)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+ברגע הוצאת 
+\begin_inset Formula $u$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+ מתקיים: 
+\begin_inset Formula $d(u)\le d(v)$
+\end_inset
+
+ )מאופן בחירת הצומת שיוצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Itemize
+אם 
+\begin_inset Formula $d(v)$
+\end_inset
+
+ לא התעדכן במהלך האיטרציה ש-
+\begin_inset Formula $u$
+\end_inset
+
+ יצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+ סיימנו.
+\end_layout
+
+\begin_layout Itemize
+אחרת יש קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ וביצענו עדכון 
+\begin_inset Formula $d(v)\leftarrow d(u)+\underbrace{w(u\rightarrow v)}_{\ge0}$
+\end_inset
+
+ הטענה נובעת מאי-שליליות המשקלים.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+מסקנה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+טענה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נכונה גם אם 
+\begin_inset Formula $v$
+\end_inset
+
+ יצא אחרי 
+\begin_inset Formula $u$
+\end_inset
+
+ אבל לא בהכרח באיטרציה העוקבת.
+\end_layout
+
+\begin_layout Subsubsection*
+מסקנה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+לאחר הוצאת 
+\begin_inset Formula $v$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $d(v)$
+\end_inset
+
+ לא מתעדכן.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה שקיים צומת 
+\begin_inset Formula $v$
+\end_inset
+
+ עבורו 
+\begin_inset Formula $d(v)$
+\end_inset
+
+ מתעדכן אחרי ש-
+\begin_inset Formula $v$
+\end_inset
+
+ יצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נסתכל על הפעם הראשונה שזה קרה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ קיים צומת 
+\begin_inset Formula $u$
+\end_inset
+
+, שכרגע יוצא מ-
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+וקשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+ כך ש-
+\begin_inset Formula $d(v)>\underbrace{d(u)}_{\mathclap{\text{when we get it from Q}}}+w(u\rightarrow v)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+)ואז ברגע הוצאת 
+\begin_inset Formula $v$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+ בגלל שזו הפעם 
+\bar under
+הראשונה
+\bar default
+(.
+\begin_inset Newline newline
+\end_inset
+
+מאי-שליליות המשקים קיבלנו ש-
+\begin_inset Formula $d(v)$
+\end_inset
+
+ ברגע הוצאת 
+\begin_inset Formula $v$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+ גדול ממש מ-
+\begin_inset Formula $d(u)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ברגע הוצאת 
+\begin_inset Formula $u$
+\end_inset
+
+ מ-
+\begin_inset Formula $Q$
+\end_inset
+
+ וזו 
+\bar under
+סתירה
+\bar default
+ למסקנה הראשונה.
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document
