@@ -77,8 +77,676 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Title
+הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+7
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אלגוריתמים
+\end_layout
 
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+מה יהיה אלו יהיו משקלים שליליים בגרף?
+\end_layout
+
+\begin_layout Standard
+האלגוריתם של 
+\begin_inset Formula $\text{Dijkstra}$
+\end_inset
+
+ יכול להכשל גם אם תהיה אפילו קשת אחת שלילת בגרף ואין מעגלים שליליים.
+\end_layout
+
+\begin_layout Subsubsection*
+הרעיון:
+\end_layout
+
+\begin_layout Standard
+האלגוריתם יתקדם בפאזות.
+ בכל פאזה, נעבור על כל קשתות הגרף בסדר כלשהו, ונבדוק הפרה של אי-שוויון המשולש
+ ביחס ל-
+\begin_inset Formula $d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+אלגוריתם 
+\begin_inset Formula $\text{Bellman Ford}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+אתחול 
+\begin_inset Formula $d(s)\leftarrow0$
+\end_inset
+
+ ולכל 
+\begin_inset Formula $v\ne s$
+\end_inset
+
+ 
+\begin_inset Formula $d(v)\leftarrow\infty\qquad$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+מבצעים 
+\begin_inset Formula $n-1$
+\end_inset
+
+* פעמים: 
+\begin_inset Formula $)^{*}$
+\end_inset
+
+
+\begin_inset Formula $|V|=n$
+\end_inset
+
+(
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+עוברים על כל הקשתות פעם אחת ולכל קשת 
+\begin_inset Formula $(u\rightarrow v)\in E$
+\end_inset
+
+, אם 
+\begin_inset Formula $d(v)>d(u)+w(u\rightarrow v)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+אז 
+\begin_inset Formula $d(v)\leftarrow d(u)+w(u\rightarrow v)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+זמן ריצה: 
+\begin_inset Formula $O(|V|\cdot|E|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+אם קיים מסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ שמכיל 
+\begin_inset Formula $k$
+\end_inset
+
+ קשתות, אז בסיום הפאזה ה-
+\begin_inset Formula $k$
+\end_inset
+
+: 
+\begin_inset Formula $d(v)=\delta(s,v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הערה:
+\end_layout
+
+\begin_layout Standard
+נכונות האלגוריתם נובעת מהטענה ומהנכונות של השיטה הגנרית שאומרת שבכל שלב
+ של ריצת השיטה הגנרית אין פספו כלפי מטה, כלומר 
+\begin_inset Formula $d(v)\ge\delta(s,v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחת הטענה:
+\end_layout
+
+\begin_layout Standard
+נוכיחח באינדוקציה על 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+בסיס: 
+\begin_inset Formula $k=0$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+רק עבור 
+\begin_inset Formula $s$
+\end_inset
+
+ יש מסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $s$
+\end_inset
+
+ שמכיל אפס קשתות )כשה אין מעגלים שליליים( ולכן 
+\begin_inset Formula $d(s)=\delta(s,s)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+צעד:
+\begin_inset Newline newline
+\end_inset
+
+נניח ש ל-
+\begin_inset Formula $v$
+\end_inset
+
+ יש מסלול קל ביותר מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+ המכיל 
+\begin_inset Formula $k+1$
+\end_inset
+
+ קשתות.
+ נסמנו:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p=\underbrace{v_{0}}_{s}\rightarrow v_{1}\rightarrow\dots\rightarrow v_{k}\rightarrow\underbrace{v_{k+1}}_{v}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ הרישא של 
+\begin_inset Formula $p$
+\end_inset
+
+ מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ מסלול קל ביותר המכיל 
+\begin_inset Formula $k$
+\end_inset
+
+ קשתות.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ לפי הנ
+\begin_inset Quotes erd
+\end_inset
+
+א על 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+, בסיום הפאזה על 
+\begin_inset Formula $v_{K}$
+\end_inset
+
+מובטח ש-
+\begin_inset Formula $d(v_{k})=\text{\ensuremath{\delta(s,v_{k})}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+במהלך הפאזה ה-
+\begin_inset Formula $k+1$
+\end_inset
+
+ בוחנים את הקשת 
+\begin_inset Formula $(v_{k}\rightarrow v_{k+1})$
+\end_inset
+
+ ואז מובטח שבסיום הפאזה ה-
+\begin_inset Formula $k+1$
+\end_inset
+
+: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d(v_{k+1})\le\underbrace{d(v_{k})+w(v_{k}\rightarrow v_{k+1})}_{\text{p-length}}=\delta(s,v_{k+1})
+\]
+
+\end_inset
+
+ לפי התכונה של השיטה הגנרית, נקבל בהכרח ש- 
+\begin_inset Formula $d(v_{k+1})\le\delta(s,v_{k+1})\:$
+\end_inset
+
+ בסיום הפאזה ה-
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+הגישה החמדנית
+\end_layout
+
+\begin_layout Subsubsection*
+הרעיון:
+\end_layout
+
+\begin_layout Standard
+הצגת גישה לפתרון בעיות בה האלגוריתם בוחר את האפשרות הטובה ביותר כרגע.
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+נתונות 
+\begin_inset Formula $n$
+\end_inset
+
+ משימות, וכל משימה 
+\begin_inset Formula $i$
+\end_inset
+
+ מיוצגת ע
+\begin_inset Quotes erd
+\end_inset
+
+י זמן התחלה 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ וזמן סיום 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+יש מכונה בודדת שיכולה להריץ את המשמות.
+ המטרה היא לבחור אוסף משימות גדול ביותר כך ש
+\begin_inset Newline newline
+\end_inset
+
+כל שתי משימות שנבחרו לא נחתכות.
+\end_layout
+
+\begin_layout Subsubsection*
+לדוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/7-1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+פתרון אופטימלי: 
+\begin_inset Formula $\{I_{1},I_{5},I_{6}\},\{I_{1},I_{3},I_{6}\},\{I_{1},I_{4},I_{6}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+ניתן לנסח את הכיה ע
+\begin_inset Quotes erd
+\end_inset
+
+י גרפים.
+ גרף אינטרוולים הוא גרף שבו כל צומת מייצג אינטרוול,
+\begin_inset Newline newline
+\end_inset
+
+ יש קשת בין שני צמתים 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ האינטרוולים נחתכים.
+\begin_inset Newline newline
+\end_inset
+
+המטרה היא למצוא קבוצה 
+\bar under
+בלתי-תלויה
+\bar default
+ גדולה ביותר )תת-קבוצה של הצמתים כך שבין כל שתיים בתת-הקבוצה אין קשת(.
+\end_layout
+
+\begin_layout Subsubsection*
+האלגוריתם:
+\end_layout
+
+\begin_layout Enumerate
+ממיינים את האינטרוולים לפי זמני סיום 
+\begin_inset Formula $f_{1}\le f_{2}\le\dots\le f_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $X\leftarrow\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+עבור 
+\begin_inset Formula $j=1$
+\end_inset
+
+ עד 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+אם 
+\begin_inset Formula $I_{j}$
+\end_inset
+
+לא נחתך עם אף אינטרוולי ב-
+\begin_inset Formula $X$
+\end_inset
+
+, בצע 
+\begin_inset Formula $X\leftarrow\{I_{j}\}\bigcup X$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+סיבוכיות: 
+\begin_inset Formula $O(nlog(n))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+לכל 
+\begin_inset Formula $k=0$
+\end_inset
+
+ עד 
+\begin_inset Formula $n$
+\end_inset
+
+, בסיום איטרציה 
+\begin_inset Formula $k$
+\end_inset
+
+ קיים פתרון אופטימלי 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ כך ש:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I_{j}\in X^{*}\Leftrightarrow I_{J}\in X\quad(\forall1\le j\le k)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+מסקנה:
+\end_layout
+
+\begin_layout Standard
+אם נבחר 
+\begin_inset Formula $k=n$
+\end_inset
+
+ נקבל שיש פתרון אופטימלי שזהה לפלט האלגוריתם.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+באינקוציה על
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+בסיס:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $k=1$
+\end_inset
+
+ נשים לב שתמיד 
+\begin_inset Formula $I_{1}\in X^{*}$
+\end_inset
+
+ )האלג' בוחר את 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+(.
+ נבחר 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ להיות פתרון אופטימלי כלשהוא.
+ אם 
+\begin_inset Formula $I_{1}\in X^{*}$
+\end_inset
+
+ סיימנו.
+ אחרת, 
+\begin_inset Formula $I\notin X^{*}$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ יהי 
+\begin_inset Formula $I_{r}\in X^{*}$
+\end_inset
+
+ האינטרוול בעל זמן הסיום הקטן ביותר בנחתך עם 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+)אם אין 
+\begin_inset Formula $I_{r}$
+\end_inset
+
+ כזה אזי 
+\begin_inset Formula $X^{*}\bigcup\{I_{1}\}$
+\end_inset
+
+ פתרון חוקי וזו סתירה לאופטימליות של 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+נטען ש-
+\begin_inset Formula $\text{X^{*}\textbackslash}\{I_{r}\}\bigcup\{I_{1}\}$
+\end_inset
+
+ פתרון חוקי )אם זה נכון סיימנו שכן פתרון זה גם הוא אופטימלי(.
+\begin_inset Newline newline
+\end_inset
+
+מפני ש-
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ זמן הסיום הקטן ביותר של כל האינטרוולים אזי 
+\begin_inset Formula $I_{r}$
+\end_inset
+
+ הוא יחיד
+\begin_inset Newline newline
+\end_inset
+
+)כלומר אין עוד אינטרוולים ב-
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ הנחתך עם 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+, אחרת 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ לא פתרון חוקי(.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $X^{*}\backslash\{I_{r}\}\bigcup\{I_{1}\}$
+\end_inset
+
+ פתרון חוקי.
 \end_layout
 
 \end_body
