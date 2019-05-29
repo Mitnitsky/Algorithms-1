@@ -1,0 +1,1644 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "David CLM"
+\font_sans "default" "Simple CLM"
+\font_typewriter "default" "Miriam Mono CLM"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 7 -1
+\bullet 1 0 8 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+אלגוריתמים הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9
+\end_layout
+
+\begin_layout Subsection*
+תכנון דינאמי
+\end_layout
+
+\begin_layout Standard
+טכניקה המאפשרת לפרק בעיה באופן רקורסיבי לתתי-בעיות קטנות מאותו סוג.
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+שיבוץ משימות ממושקלות.
+\bar under
+
+\begin_inset Newline newline
+\end_inset
+
+נתון:
+\bar default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ אנטרוולים, כאשר כל אינטרוול נתון ע
+\begin_inset Quotes erd
+\end_inset
+
+י התחלה 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ וזמן סיום 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+.
+ לאינטרוול ה-
+\begin_inset Formula $i$
+\end_inset
+
+ נתון רווח 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+מטרה:
+\bar default
+ למצוא אוןסף אינטרוולים 
+\begin_inset Formula $S$
+\end_inset
+
+ כך שכל שני אינטרוולים ב-
+\begin_inset Formula $S$
+\end_inset
+
+ לא נחתכים שממקסם 
+\begin_inset Formula $\underset{j\in S}{\Sigma}w_{j}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נזכר שמיינו את האינטרוולים: 
+\begin_inset Formula $f_{1}\le f_{2}\le\dots\le f_{n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+עבור אינטרוול 
+\begin_inset Formula $I_{j}$
+\end_inset
+
+, נסמן ב-
+\begin_inset Formula $p(j)$
+\end_inset
+
+ את האינדקס הכי גדול כך ש-
+\begin_inset Formula $p(j)\le s_{j}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+)כלומר , אינטרוול 
+\begin_inset Formula $I_{p(j)}$
+\end_inset
+
+ לא נחתך עם אינטרוול 
+\begin_inset Formula $I_{j}$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+ אם לא קיים אינטרוול כזה, 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ יוגדר להיות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+.
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p(1)=0,\,\,p(2)=0,\,\,p(3)=1,\,\,p(4)=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/9-1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+מה הן תתי הבעיות שנוצרו ?
+\begin_inset Newline newline
+\end_inset
+
+תתי-הביות שיעניינו אותנו יהיו רישאות, כלומר לכל 
+\begin_inset Formula $0\le j\le n$
+\end_inset
+
+ הראישר ה-
+\begin_inset Formula $j$
+\end_inset
+
+ תכיל 
+\begin_inset Formula $\{I_{1},I_{2},\dots,I_{j}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה:
+\end_layout
+
+\begin_layout Standard
+נסמן ב-
+\begin_inset Formula $A(j)$
+\end_inset
+
+ את ערך הפתרון האופטימלי עבור תת-הבעיה ה-
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+האם יש קשר רקורסיבי בין 
+\begin_inset Formula $A(0),A(1),\dots,A(n)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A(j)=\begin{cases}
+0 & j=0\\
+max\{A(j-1),w_{j}+A(p_{j}) & 1\le j\le n
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A(0),\dots,A(n)$
+\end_inset
+
+ מקיימות את הנוסחה הרקורסיבית לעיל.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $j=0$
+\end_inset
+
+ אזי 
+\begin_inset Formula $A(0)$
+\end_inset
+
+ הוא ערך הפתרון האופטימלי עבור קלט ריק, כלומר 
+\begin_inset Formula $A(0)=0$
+\end_inset
+
+, כפי שאכן מגדירה הנוסחה הרקורסיבית.
+\begin_inset Newline newline
+\end_inset
+
+אחרת 
+\begin_inset Formula $1\le j\le n$
+\end_inset
+
+.
+ נסמן ב-
+\begin_inset Formula $S_{j}^{*}$
+\end_inset
+
+ פתרון אופטימלי כלשהו לתת-הבעיה 
+\begin_inset Formula $\{I_{1},I_{2},\dots I_{j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+אם 
+\begin_inset Formula $I_{J}\notin S_{j}^{*}$
+\end_inset
+
+ אזי 
+\begin_inset Formula $S_{j}^{*}$
+\end_inset
+
+ פתרון אופטימלי לבעיה ה-
+\begin_inset Formula $j-1$
+\end_inset
+
+ )שכן אחרת 
+\begin_inset Formula $S_{j}^{*}$
+\end_inset
+
+ לא היה פתרון אופטימלי לתת-הבעיה ה-
+\begin_inset Formula $j$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $\underset{i\in S_{j}^{*}}{\sum w_{i}}=A(j-1)$
+\end_inset
+
+ )מההגדרה(
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Formula $A(j)=A(j-1)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+האם יתכן כי 
+\begin_inset Formula $\underset{i\in S_{j}^{*}}{\sum w_{i}}<w_{j}+A(p(j))$
+\end_inset
+
+? 
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+לא
+\bar default
+, מפני שבמקרה זה היה פתרון עדיף מ-
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ ל-
+\begin_inset Formula $\{I_{1},I_{2},\dots,I_{j}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+אם 
+\begin_inset Formula $I_{j}\in S_{j}^{*}$
+\end_inset
+
+ אזי 
+\begin_inset Formula $S_{j}^{*}\backslash\{I_{j}\}$
+\end_inset
+
+ הוא פתרון אופטימלי לתת-הבעיה 
+\begin_inset Formula $p(j)$
+\end_inset
+
+ )שכן אחרת 
+\begin_inset Formula $S_{j}^{*}$
+\end_inset
+
+ לא היה פתרון אפשרי עבור תת-הבעיה ה-
+\begin_inset Formula $j$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\text{\ensuremath{\underset{i\in S_{j}^{*}}{\sum w_{i}=w_{j}+A(p(j))}}}\Leftarrow$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Formula $A_{j}=w_{j}+A(p(j))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+האם יתכן כי 
+\begin_inset Formula $A(j-1)>\underbrace{w_{j}+A(p(j))}_{A_{J}}$
+\end_inset
+
+? 
+\bar under
+לא!
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $A(0),\dots,A(n)$
+\end_inset
+
+ מקיימת את הנוסחה הרקורסיבית.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+האם ניתן לחשב את 
+\begin_inset Formula $A(n)$
+\end_inset
+
+ במהירות בעזרת הנוסחה הרקורסיבית? 
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+הרעיון:
+\bar default
+ בדומה לסדרת פיבונאצ'י, ניתן לשלם בזכרון ולחשב את 
+\begin_inset Formula $A(n)$
+\end_inset
+
+ בזמן לינארי.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Formula $A=$
+\end_inset
+
+)סדר חישוב 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsubsection*
+האלגוריתם:
+\end_layout
+
+\begin_layout Enumerate
+חשב את 
+\begin_inset Formula $p(1),\dots,p(n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+עבור 
+\begin_inset Formula $j-0$
+\end_inset
+
+ עד 
+\begin_inset Formula $n$
+\end_inset
+
+ בצע:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+חשב את 
+\begin_inset Formula $A(j)$
+\end_inset
+
+ לפי הנוסחה הרקורסיבית.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+החזר את 
+\begin_inset Formula $A(n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+)ללא המיון 
+\begin_inset Formula $f_{1}\le\dots\le f_{n}$
+\end_inset
+
+ זמן הריצה הוא 
+\begin_inset Formula $O(n)$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+סדר ביצוע כפל מטריצות
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+נתון:
+\bar default
+ תרגיל כפל מטריצות 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ במימדים 
+\begin_inset Formula $p_{i-1\times p_{i}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+מטרה:
+\bar default
+ למצוא סדר לביצוע התרגיל הממזער את מספר כפלים האריתמטיים.
+\begin_inset Newline newline
+\end_inset
+
+)הערה: כפל של 
+\begin_inset Formula $A\cdot B$
+\end_inset
+
+ כשא 
+\begin_inset Formula $A$
+\end_inset
+
+ במימדים 
+\begin_inset Formula $p\times q$
+\end_inset
+
+ ו-
+\begin_inset Formula $B$
+\end_inset
+
+ במימדים 
+\begin_inset Formula $q\times r$
+\end_inset
+
+ דורש 
+\begin_inset Formula $pqr$
+\end_inset
+
+ מכפלות(.
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{1}(10\times100),A_{2}(100\times5),A_{3}(5\times50)
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $\xymatrix{ & A_{1}\cdot A_{2}\cdot A_{3}\ar[dr]\ar[dl]\\
+(A_{1}\cdot A_{2})\cdot A_{3}\ar@2[d] &  & A_{1}\cdot(A_{2}\cdot A_{3})\ar@2[d]\\
+10*100*5+10*5*50\ar@2[d] &  & 100*5*50+10*100*50\ar@2[d]\\
+=7500 &  & =75000
+}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כמה אפשרויות יש לביצוע תרגיל באורך 
+\begin_inset Formula $n$
+\end_inset
+
+?
+\begin_inset Newline newline
+\end_inset
+
+נסמן ב-
+\begin_inset Formula $p(n)$
+\end_inset
+
+ את מס' האפשרויות למקם סוגריים בתרגיל באורך 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(n)\triangleq\begin{cases}
+1 & n=1\\
+\overset{n-1}{\underset{k=1}{\sum p(k)\cdot p(k-1)}} & n\ne1
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+הפתרון הוא 
+\begin_inset Formula $p(n)=\underbrace{C_{n-1}}_{\mathclap{\text{Cathalan's\,number}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{n}=\frac{1}{n+1}\cdot{2n \choose n}=\Omega{4^{n} \choose n^{3/2}}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ לא ניתן לעבור באופן יעיל על כל האפשרויות.
+\begin_inset Newline newline
+\end_inset
+
+נגדיר תת-בעיה לכל תת-סדרה של התרגיל, כלומר לכל 
+\begin_inset Formula $1\le i\le j\le n$
+\end_inset
+
+ : 
+\begin_inset Formula $A_{i},A_{i+1},\dots,A_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה
+\end_layout
+
+\begin_layout Standard
+נסמן ב-
+\begin_inset Formula $M(i,j)$
+\end_inset
+
+ את המספר הכפלים האריתמטיים ברטן ביותר שצריך על מנת לפתור את 
+\begin_inset Formula $A_{i}\cdot A_{i+1}\cdots A_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M\left(i,j\right)\triangleq\begin{cases}
+0 & i=j\\
+\underbrace{\text{min}}_{i\le k\le j}\{\underbrace{M(i,j)}_{\text{dimesnsions \ensuremath{p_{i-1}\times p_{k}}}}+\underbrace{M(k+1,j)}_{\text{dimesnsions}\ensuremath{p_{k}\times p_{j}}}+p_{i-1}\cdot p_{k}\cdot p_{j}\} & i<j
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $M(i,j)$
+\end_inset
+
+ מקיים את נוסחת הרקורסיה.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד לחשב במהירות את נוסחת הרקורסיה ?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+)פלט(?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ddots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Formula $M=$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נשים לב שאם נייצג את 
+\begin_inset Formula $M$
+\end_inset
+
+ כמטריצה מתקיים:
+\end_layout
+
+\begin_layout Itemize
+תנאי העצירה נותן את ערכי האלכסון.
+\end_layout
+
+\begin_layout Itemize
+מעוניינים רק במשולש העליון של המטריצה.
+\end_layout
+
+\begin_layout Itemize
+לפי נוסחת הרקורסיה 
+\begin_inset Formula $M(i,j)$
+\end_inset
+
+ תלוי בתאי המטריצה משמאלו ומתחתיו.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+קיימים הרבה סדרים שבהם ניתן לחשב את איברי המטריצה 
+\begin_inset Formula $M$
+\end_inset
+
+ , כך שברגע שמחשבים את 
+\begin_inset Formula $M(i,j)$
+\end_inset
+
+ כל התאים במטריצה שהוא תלוי בהם כבר חושבו.
+\end_layout
+
+\begin_layout Standard
+בכל סדר חישוב שכזה, חישוב תא 
+\begin_inset Formula $M(i,j)$
+\end_inset
+
+ לוקח זמן של 
+\begin_inset Formula $O(j-i)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ במקרה הגרוע זה 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ זמן הריצה הוא 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
