@@ -1,0 +1,2541 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "David CLM"
+\font_sans "default" "Simple CLM"
+\font_typewriter "default" "Miriam Mono CLM"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 7 -1
+\bullet 1 0 8 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+אלגוריתמים הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\end_layout
+
+\begin_layout Subsection*
+תכנון דינאמי - המשך
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+מסלולים קלים ביותר בין כל זוגות הצמתים בגרף
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+נתון:
+\bar default
+ גרף מכוון 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+פונקציית משקל 
+\begin_inset Formula $w:E\rightarrow\mathbb{R}$
+\end_inset
+
+ )נניח שאין מעגלים שליליים(
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+מטרה:
+\bar default
+ לכל שני צמתים 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+, נרצה לחשב את אורך המסלול הקל ביותר ב-
+\begin_inset Formula $G$
+\end_inset
+
+ מ-
+\begin_inset Formula $u$
+\end_inset
+
+ ל-
+\begin_inset Formula $v$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+פתרון פשוט:
+\bar default
+ להריץ 
+\begin_inset Formula $\text{Bellman\,Ford}$
+\end_inset
+
+ מכל צומת 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+סיבוכיות:
+\bar default
+ 
+\begin_inset Formula $O(|V|^{2}\cdot|E|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד להגדיר תתי-בעיות?
+\begin_inset Newline newline
+\end_inset
+
+צמתי הבנים של מסלול 
+\begin_inset Formula $p$
+\end_inset
+
+ יהיו כל הצמתים ב-
+\begin_inset Formula $p$
+\end_inset
+
+ פרט לצומת ההתחלה וצומת הסיום.
+\begin_inset Newline newline
+\end_inset
+
+נניח מטעני נוחות, שצמתי הגרף הם 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נגדיר תת-בעיה: לכל זוג צמתים 
+\begin_inset Formula $u$
+\end_inset
+
+ ו-
+\begin_inset Formula $v$
+\end_inset
+
+ ולכל 
+\begin_inset Formula $k=0,1,\dotsm,n$
+\end_inset
+
+ ונסמן 
+\begin_inset Formula $\delta_{k}(i,j)$
+\end_inset
+
+ להיות משקל מסלול
+\end_layout
+
+\begin_layout Standard
+ב-
+\begin_inset Formula $G$
+\end_inset
+
+ מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ל-
+\begin_inset Formula $v_{J}$
+\end_inset
+
+ מבין כל המסלולים שצמתי הביניים שלהם לקוחים מתוך 
+\begin_inset Formula $\{v_{1},\dots,v_{k}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{k}(i,j)=\begin{cases}
+0 & k=0,i=j\\
+w_{i,j} & k=0,i\ne j,(v_{i},v_{j})\in E\\
+\infty & k=0,i\ne j,(v_{i},v_{j})\notin E\\
+min\{D_{k-1}(i,j),D_{k-1}(i,k)+D_{k-1}(k,j) & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{k}(i,j)=\text{\ensuremath{\delta_{k}(i,j)}}$
+\end_inset
+
+ לכל 
+\begin_inset Formula $1\le i,j\le n$
+\end_inset
+
+ ולכל 
+\begin_inset Formula $k\in\{0,1,\dots,n\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+שאלה:
+\series default
+ כיצד לחשבת את ה-
+\begin_inset Formula $D$
+\end_inset
+
+-ים ? )באופן מהיר(
+\begin_inset Newline newline
+\end_inset
+
+חישוב כל מטריצה לוקח 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ זמן
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underbrace{\text{\fbox{\ensuremath{\underset{(nxn)}{D_{0}(i,j)}}}}}_{\underbrace{k=0}_{\mathclap{(\text{stop cond.)}}}}\text{\ensuremath{\Rightarrow}}\underbrace{\fbox{\ensuremath{\underset{(nxn)}{D_{1}(i,j)}}}}_{k=1}\text{\ensuremath{\Rightarrow\dots\Rightarrow\underbrace{\fbox{\ensuremath{\underset{(nxn)}{D_{n}(i,j)}}}}_{k=n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+הערה: 
+\series default
+האלגוריתם צורך 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ במקום.
+\end_layout
+
+\begin_layout Standard
+אלגוריתם זה נקרא 
+\begin_inset Formula $\boldsymbol{\text{Floyd Warshall}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+באינדוקצייה על 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+בסיס:
+\bar default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ נובע מידי מהגדרת 
+\begin_inset Formula $\delta_{0}(i,j)$
+\end_inset
+
+ ו-
+\begin_inset Formula $D_{0}(i,j)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+צעד:
+\bar default
+ נקבע שני צמתים 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ ו-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ ונזכר ש-
+\begin_inset Formula $\delta_{k}(i,j)$
+\end_inset
+
+ הוא אורך המסלול הקל ביותר מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ ל-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ב-
+\begin_inset Formula $G$
+\end_inset
+
+ שצמתי הביניים שלו לקוחים מתוך 
+\begin_inset Formula $\{v_{1},\dots,v_{k}\}$
+\end_inset
+
+.
+ יהי 
+\begin_inset Formula $p$
+\end_inset
+
+ מסלול כזה.
+\end_layout
+
+\begin_layout Standard
+נחלק לשני מקרים:
+\end_layout
+
+\begin_layout Enumerate
+נניח כי 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ נמצא ב-
+\begin_inset Formula $p$
+\end_inset
+
+, נשים לב ש-
+\begin_inset Formula $v_{K}$
+\end_inset
+
+ מופיע פעם אחת 
+\begin_inset Formula $v_{i}\longrightarrow v_{k}\longrightarrow v_{j}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ב-
+\begin_inset Formula $p$
+\end_inset
+
+ כי אין מעגלים שליליים שמסלול קל ביותר הוא פשוט.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $=\delta_{k}(i,j)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+סך משקלי הקשתות ב-
+\begin_inset Formula $p$
+\end_inset
+
+=
+\begin_inset Newline newline
+\end_inset
+
+סך משקלי הקשתות בסיפא מ-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ ל- 
+\begin_inset Formula $v_{j}$
+\end_inset
+
++סך משקל הקשתות ברישא מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ל-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\delta_{k}(i,j)=\text{\ensuremath{\delta_{k-1}(i,k)+\text{\ensuremath{\delta_{k-1}(k,j)}}}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נשים לב שסך משקלי הקשתות ברישא של 
+\begin_inset Formula $p$
+\end_inset
+
+ מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ ל-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ שווה ל-
+\begin_inset Formula $\delta_{k-1}(i,k)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+שכן אחרת 
+\begin_inset Formula $\delta_{k-1}(i,k)$
+\end_inset
+
+ קטן יותר וניתן להחליף את הרישא במסלול טוב יותר מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ל-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+שצמתי הביניים שלו מתוך 
+\begin_inset Formula $\{v_{i},\dots,v_{k-1}\}$
+\end_inset
+
+ בסתירה לאופטימליות של 
+\begin_inset Formula $k$
+\end_inset
+
+(.
+\begin_inset Newline newline
+\end_inset
+
+באופן דומה, סך משקלי הקשתות של הסיפא של 
+\begin_inset Formula $p$
+\end_inset
+
+ מ-
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ל-
+\begin_inset Formula $v_{J}$
+\end_inset
+
+ שווה ל- 
+\begin_inset Formula $\delta_{k-1}(k,j)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta_{k}(i,j)=\delta_{k-1}(i,j)+\delta_{k-1}(i,j)\underbrace{=}_{\mathclap{\text{induction}}}D_{k-1}(i,k)+D_{k-1}(k,j)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נראה ש- 
+\begin_inset Formula $D_{k-1}(i,j)\ge D_{k-1}(i,k)+D_{k-1}(k,j)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D_{k-1}(i,j)\underbrace{=}_{\mathclap{\text{induction}}}\delta_{k-1}(i,j)\ge\delta_{k}(i,j)\underbrace{=}_{\mathclap{\text{proved}}}D_{k-1}(i,k)+D_{k-1}(k,j)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Longleftarrow$
+\end_inset
+
+
+\begin_inset Formula $\delta_{k}(i,j)=D_{k}(i,j)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+נניח כי 
+\begin_inset Formula $v_{K}$
+\end_inset
+
+ לא נמצא ב-
+\begin_inset Formula $p$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\delta_{k}(i,j)=\Sigma(\text{weights in p})\underbrace{=}_{\mathclap{\text{v_{k}not in p}}}\delta_{k-1}(i,j)\underbrace{=}_{\mathclap{\text{induction}}}D_{k-1}(i,j)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נראה ש-
+\begin_inset Formula $D_{k-1}(i,j)\le D_{k-1}(i,k)+D_{k-1}(k,j)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D_{k-1}(i,j)+D_{k-1}(k,j)\underbrace{=}_{\mathclap{\text{induction}}}\delta_{k-1}(i,k)+\delta_{k-1}(k,j)\underbrace{\ge}_{\mathclap{\text{definition}}}\delta_{k}(i,j)=D_{k-1}(i,j)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Longleftarrow$
+\end_inset
+
+
+\begin_inset Formula $\text{\ensuremath{\delta_{k}(i,j)=D_{k}(i,j)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המקרה הנותר הוא שאין מסלול מ-
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ל-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ שצמתי הביניים שלו לקוחים מתוך 
+\begin_inset Formula $\{v_{1},\dots v_{k}\}$
+\end_inset
+
+ , כלומר 
+\begin_inset Formula $\delta_{k}(i,j)=\infty$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נראה שמתקיים 
+\begin_inset Formula $D_{k}(i,j)=\infty$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נניח בשלילה שלא, ולכן לפי הגדרת 
+\begin_inset Formula $D$
+\end_inset
+
+ מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{k}(i,j)$
+\end_inset
+
+ סופי או 
+\begin_inset Formula $D_{k-1}(i,k)+D_{k-1}(k,j)$
+\end_inset
+
+ סופי.
+\begin_inset Newline newline
+\end_inset
+
+לפי הנחת האינדוקצייה, אם זה המצב אזי יש מסלול מ
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ ל-
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ שצמתי הביניים שלו לא מתוך 
+\begin_inset Formula $\{v_{1},\dots,v_{k}\}$
+\end_inset
+
+ בסתירה להנחת השלילה.
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+ 
+\begin_inset Formula $\text{Sequence Alignment}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+דוגמה: הוקלדה המחרוזת 
+\begin_inset Formula $\text{"ocurrance"}$
+\end_inset
+
+ ומוצע למשתמש התיקון ל-
+\begin_inset Formula $\text{"ocurrence"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כיצד נתאים בין שתי המחרוזות ?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="11">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{-}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{a}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{-}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{e}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{e}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+שלושה תוים שלא התאימו
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{\fbox{a}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $o$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{e}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+תו אחד שלא התאים + התאמה שאינה בין אותו תו
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+נתון:
+\bar default
+ שתי מחרוזות 
+\begin_inset Formula $\begin{cases}
+x=x_{1}x_{2}\dots x_{n}\\
+y=y_{1}y_{2}\dots y_{m}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+שידוך 
+\begin_inset Formula $M$
+\end_inset
+
+ בין 
+\begin_inset Formula $\{1,\dots,n\}$
+\end_inset
+
+ ו-
+\begin_inset Formula $\{1,\dots,m\}$
+\end_inset
+
+ יהיה חוקי אם:
+\end_layout
+
+\begin_layout Enumerate
+כל אינדקס מופיע לכל היותר פעם אחת ב-
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(i,j),(i',j')\in M$
+\end_inset
+
+ ו-
+\begin_inset Formula $i<i'$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ 
+\begin_inset Formula $j<j'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד נכמת ערך שידוך חוקי?
+\begin_inset Newline newline
+\end_inset
+
+אילו יש מיקום שאינו מותאם, אזי נשלם עליו 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $(i,j)\in M$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ קיימת טבלה שמציימת מהי עלות השידוך של 
+\begin_inset Formula $\alpha(x_{i},y_{j})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+מטרה:
+\bar default
+ למצוא שידוך חוקי זול ביותר בין 
+\begin_inset Formula $x$
+\end_inset
+
+ ל-
+\begin_inset Formula $y$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+הבחנה:
+\bar default
+ נתונות 
+\begin_inset Formula $x=x_{1}\dots,x_{n}$
+\end_inset
+
+ ו-
+\begin_inset Formula $y=y_{1}\dots y_{m}$
+\end_inset
+
+ אזי:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(n,m)\in M$
+\end_inset
+
+ או שלפחות אחד מ-
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ ו-
+\begin_inset Formula $y_{n}$
+\end_inset
+
+לא משודך )הוכחה, כיוון שאין הצטלבויות(.
+\begin_inset Newline newline
+\end_inset
+
+תתי הבעיות שעניינו אותנו הן רשאיות)תאופיין ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $i$
+\end_inset
+
+ ו-
+\begin_inset Formula $j$
+\end_inset
+
+(
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+x_{1}\dots x_{i}\\
+y_{1}\dots y_{j}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+נגדיר את 
+\begin_inset Formula $A(i,j)$
+\end_inset
+
+ להיות עלות שידוך חוקי זול ביותר בין 
+\begin_inset Formula $x_{1}\dots x_{i}$
+\end_inset
+
+ ו-
+\begin_inset Formula $y_{1}\dots y_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B(i,j)=\begin{cases}
+\delta\cdot j & i=0\\
+\delta\cdot i & j=0\\
+min\{\alpha(x_{i},y_{j})+B(i-1,j-1),\delta+B(i-1,j),\delta+B(i,j-1)\} & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+לכל 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ ו-
+\begin_inset Formula $1\le j\le m$
+\end_inset
+
+: 
+\begin_inset Formula $A(i,j)=B(i,j)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד לחשב את 
+\begin_inset Formula $B$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dotsm$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underbrace{?}_{\text{output}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+קיימים מספר סדרים עבורם זמן הריצה הוא 
+\begin_inset Formula $O(n\cdot m)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+סיבוכיות זכרון 
+\begin_inset Formula $O(min\{n,m\})$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
