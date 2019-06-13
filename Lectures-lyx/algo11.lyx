@@ -1,0 +1,913 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "David CLM"
+\font_sans "default" "Simple CLM"
+\font_typewriter "default" "Miriam Mono CLM"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 7 -1
+\bullet 1 0 8 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+אלגוריתמים הרצאה
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+11
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+מתןמה רשת תקשורת )גרף מכוון( ונתון צומת שולח וצומת מקבל.
+\begin_inset Newline newline
+\end_inset
+
+לכל קשת נתון הקצב בו ניתן לשלוח מידע עליה.
+\end_layout
+
+\begin_layout Itemize
+מהו הקצב הגדול ביותר בו ניתן לשלוח מהצומת השולח לצומת המקבל?
+\end_layout
+
+\begin_layout Itemize
+מה הניתוב שמשיג את הקצב הגדול ביותר?
+\end_layout
+
+\begin_layout Subsubsection*
+זרימה
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+הגדרה:
+\bar default
+ רשת זרימה היא רביעייה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+ כאשר:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ גרף מכוון.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s,t\in V$
+\end_inset
+
+ שני צמתים בגרף )
+\begin_inset Formula $s$
+\end_inset
+
+ נקרא מקור ו-
+\begin_inset Formula $t$
+\end_inset
+
+ נקרא בור(.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c:E\rightarrow\mathbb{R}_{+}$
+\end_inset
+
+ פונקציית קיבול על הקשתות.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+הגדרה:
+\bar default
+ בהנתן קשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, 
+\series bold
+פונקציית זרימה
+\series default
+ היא 
+\begin_inset Formula $f:E\rightarrow\mathbb{R}_{+}$
+\end_inset
+
+ שמקיימת:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall e\in E\,0\le f(e)\le c(e)$
+\end_inset
+
+ )אילוצי קיבול(.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall u\in V\backslash\{s,t\}\:\underset{e\in\delta^{+}(u)}{\sum f(e)}=\underset{e\in\delta^{-}(u)}{\sum f(e)}$
+\end_inset
+
+ )אילוצי שימור(.
+\end_layout
+
+\begin_layout Standard
+כאשר: 
+\begin_inset Formula $\delta^{+}(u)$
+\end_inset
+
+ מהווה את אוסף הקשתות היוצאות מ–
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta^{-}(u)$
+\end_inset
+
+ מהווה את אוסף הקשתות הנכנסות מ-
+\begin_inset Formula $u$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+הגדרה:
+\bar default
+ בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+ ופונקציית זרימה 
+\begin_inset Formula $f$
+\end_inset
+
+ ברשת, 
+\series bold
+הערך
+\series default
+ של 
+\begin_inset Formula $f$
+\end_inset
+
+ יסומן ויוגדר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+|f|\triangleq\underset{e\in\delta^{+}(s)}{\sum f(e)}-\underset{e\in\delta^{-}(s)}{\sum f(e)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר, 
+\begin_inset Quotes eld
+\end_inset
+
+נטו
+\begin_inset Quotes erd
+\end_inset
+
+ הזרימה היוצאת מ-
+\begin_inset Formula $s$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+הבעיה:
+\end_layout
+
+\begin_layout Standard
+בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, מהי פונקציית הזרימה 
+\begin_inset Formula $f$
+\end_inset
+
+ בעלת ערך 
+\begin_inset Formula $|f|$
+\end_inset
+
+ הקטן ביותר?
+\end_layout
+
+\begin_layout Subsubsection*
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\xymatrix{ & a\ar[r]^{12} & b\ar[dr]^{7}\ar[ddl]_{\,3}\\
+s\ar[ur]^{15}\ar[dr]_{4} &  &  & t\\
+ & c\ar[r]_{10} & d\ar[ur]_{10}\ar[uul]_{\text{\,}5}
+}
+$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+הפונקצייה המזרימה 
+\begin_inset Formula $O$
+\end_inset
+
+ על כל קשת היא חוקית ועותקים עבורה 
+\begin_inset Formula $|f|=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\xymatrix{ & a\ar[r]^{10/12} & b\ar[dr]^{7/7}\ar[ddl]_{3/3}\\
+s\ar[ur]^{10/15}\ar[dr]_{4/4} &  &  & t\\
+ & c\ar[r]_{7/10} & d\ar[ur]_{7/10}\ar[uul]_{0/5}
+}
+$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+הפונקצייה )הערך השמאלי בגרף( היא פונקציית זרימה חוקית וערכה 
+\begin_inset Formula $|f|=14$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה:
+\end_layout
+
+\begin_layout Standard
+כיצד נוכיח שאין פונקציית ערימה שערכה גדול ממש מ-
+\numeric on
+14
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+?
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה:
+\end_layout
+
+\begin_layout Standard
+בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, 
+\bar under
+חתך 
+\begin_inset Formula $s-t$
+\end_inset
+
+
+\bar default
+ הוא 
+\begin_inset Formula $S\subseteq V$
+\end_inset
+
+ כך ש-
+\begin_inset Formula $s\in S$
+\end_inset
+
+ ו-
+\begin_inset Formula $t\notin S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+קיבול
+\bar default
+ החתך מוגדר להיות סך הקיבולים של הקשתות הקדמיות בחתך, כלומר
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c(S)=\underset{\underset{u\in S,v\notin S}{e=(u\rightarrow v)\in E:}}{\sum c(e)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, לכל פונקציית זרימה חוקית 
+\begin_inset Formula $f$
+\end_inset
+
+ ברשת ולכל חתך 
+\begin_inset Formula $s-t$
+\end_inset
+
+ ו-
+\begin_inset Formula $S$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+|f|<c(S)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענת עזר:
+\end_layout
+
+\begin_layout Standard
+בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, וחתך 
+\begin_inset Formula $s-t$
+\end_inset
+
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ ופונקציית זרימה 
+\begin_inset Formula $f$
+\end_inset
+
+, מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underset{\underset{u\in S,v\notin S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}-\underset{\underset{u\notin S,v\in S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}=|f|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחת טענת העזר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & |f|\underbrace{=}_{\text{def.}}\underset{e\in\delta^{+}(s)}{\sum f(e)}-\underset{e\in\delta^{-}(s)}{\sum f(e)}\underbrace{=}_{\text{current save.}}\underset{u\in S}{\sum}\left[\underset{e\in\delta^{+}(s)}{\sum f(e)}-\underset{e\in\delta^{-}(s)}{\sum f(e)}\right]\\
+ & \underbrace{=}_{\text{sum order change}}\underset{\underset{u\in S,v\notin S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}-\underset{\underset{u\notin S,v\in S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}=|f|
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הוכחת טענה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+|f|\underbrace{=}_{\text{Aux. claim}}\underset{\underset{u\in S,v\notin S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}-\underset{\underset{u\notin S,v\in S}{e=(u\rightarrow v)\in E:}}{\sum f(e)}\le\underset{\underset{u\in S,v\notin S}{e=(u\rightarrow v)\in E:}}{\sum c(e)}-0=c(S)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+מסקנה:
+\end_layout
+
+\begin_layout Standard
+אילו מצאנו פונקציות זרימה וחתך 
+\begin_inset Formula $s-t$
+\end_inset
+
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ כך ש: 
+\begin_inset Formula $c(S)=|f|$
+\end_inset
+
+, מובטח שיש לנו זרימה אופטימלית.
+\end_layout
+
+\begin_layout Subsubsection*
+הרעיון באופן כללי:
+\end_layout
+
+\begin_layout Standard
+נתחיל מזרימה חוקית )למשל, זרימת האפס( וננסה לשפר אותה עד שנתקע.
+\begin_inset Newline newline
+\end_inset
+
+צעד השיפור יעשה על ידי הזרימה על מסלול מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $t$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+דוגמה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\xymatrix{ & a\ar[dr]^{1/2}\ar[dd]^{1/1}\\
+s\ar[ur]^{2/2}\ar[dr]_{1/2} &  & t\\
+ & b\ar[ur]_{2/2}
+}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה:
+\end_layout
+
+\begin_layout Standard
+נתונה רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+ ופונקציית זרימה חוקית 
+\begin_inset Formula $f$
+\end_inset
+
+ ברשת.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+השרת השיורית
+\series default
+ היא 
+\begin_inset Formula $(G_{f},s,t,c_{p})$
+\end_inset
+
+ כאשר:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $G_{f}=(V,E_{f})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\overline{e}\}$
+\end_inset
+
+ הקשת ההפוכה לקשת 
+\begin_inset Formula $E_{f}=E\bigcup\{\overline{e}|e\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall e\in E,\,C_{f}(e)\triangleq c(e)-f(e)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{f}(\overline{e})=f(e)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\xymatrix{ & a\ar@(ur,ur)[dr]^{1}\ar[dl]^{2}\ar@(dr,ur)[dd]^{0}\\
+s\ar@(ul,ul)[ur]^{0}\ar@(dl,dl)[dr]_{1} &  & t\ar[dl]^{0}\ar[ul]_{1}\\
+ & b\ar@(dr,dr)[ur]_{2}\ar[uu]^{1}\ar[ul]^{1}
+}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרת פעולת חיבור זרימות
+\end_layout
+
+\begin_layout Standard
+נתונה רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+ ופונקציית זרימה 
+\begin_inset Formula $f$
+\end_inset
+
+ חוקית בה.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $f'$
+\end_inset
+
+ פונקציית זרימה חוקית ברשת השיורית 
+\begin_inset Formula $(G_{f},s,t,c_{f})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+נגדיר פונקציית זרימה שנסמן ב-
+\begin_inset Formula $f+f'$
+\end_inset
+
+ באופן הבא:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall e\in E,\:(f+f')(e)\triangleq f(e)+f'(e)-f'(\overline{e})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+טענה:
+\end_layout
+
+\begin_layout Standard
+בהינתן רשת זרימה 
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+, פונקציית זרימה 
+\begin_inset Formula $f$
+\end_inset
+
+ החוקית בה, ו-
+\begin_inset Formula $f'$
+\end_inset
+
+ פונק' זרימה חוקית
+\begin_inset Newline newline
+\end_inset
+
+ב-
+\begin_inset Formula $(G_{f},s,t,c_{f})$
+\end_inset
+
+, אזי: 
+\begin_inset Formula $f+f'$
+\end_inset
+
+ זרימה חוקית ב-
+\begin_inset Formula $(G,s,t,c)$
+\end_inset
+
+ וערכה: 
+\begin_inset Formula $|f+f'|=|f|+|f'|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+הגדרה:
+\end_layout
+
+\begin_layout Standard
+מסלול שיפור הוא מסלול מ-
+\begin_inset Formula $s$
+\end_inset
+
+ ל-
+\begin_inset Formula $t$
+\end_inset
+
+ ברשת השיורית שכל הקיבולים השיוריים בו חיוביים ממש.
+\end_layout
+
+\begin_layout Subsection*
+אלגוריתם 
+\begin_inset Formula $\text{Ford Fulkerson}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+מתחילים עם זרימה 
+\begin_inset Formula $f(e)\equiv0$
+\end_inset
+
+ 
+\begin_inset Formula $\forall e\in E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+כל עוד ב-
+\begin_inset Formula $G_{f}$
+\end_inset
+
+ יש מסלול שיפור 
+\begin_inset Formula $p$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+מגדירים 
+\begin_inset Formula $f'$
+\end_inset
+
+ ברשת השיורית 
+\begin_inset Formula $(G_{f},s,t,c_{f})$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+e\notin P\Rightarrow f'(e)=0\,,e\in P\Rightarrow f'(e)=\underset{e\in P}{min}\{c_{f}(e)\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f\leftarrow f+f'$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+הפלט הוא 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
